@@ -1,5 +1,6 @@
 import sqlalchemy as sa
 from database import models
+<<<<<<< HEAD
 from fastapi import HTTPException, status
 from repository.base_crud import BaseCrudRestrict
 from schemas import schemas
@@ -9,12 +10,22 @@ from sqlalchemy.exc import IntegrityError
 class UserCrud(BaseCrudRestrict):
     """Execution of the request in database for user model"""
 
+=======
+
+from crud.base_crud import BaseCrudRestrict
+from fastapi import status, HTTPException
+
+class UserCrud(BaseCrudRestrict):
+>>>>>>> 09b7086 (Add user routers)
     def __init__(self, session):
         super().__init__(session)
         self.model = models.User
 
     async def get_user(self, email: str) -> models.User:
+<<<<<<< HEAD
         """Execution of the request get user by email"""
+=======
+>>>>>>> 09b7086 (Add user routers)
         stmt = sa.select(self.model).where(self.model.email == email)
         user = await self.session.scalar(stmt)
         if user is None:
@@ -22,6 +33,7 @@ class UserCrud(BaseCrudRestrict):
                 status.HTTP_404_NOT_FOUND, f"{email} not found"
             )
         return user
+<<<<<<< HEAD
 
 
 class JoinOrganizationCrud(BaseCrudRestrict):
@@ -52,3 +64,5 @@ class JoinOrganizationCrud(BaseCrudRestrict):
                 ) from error
             raise error
         return organization
+=======
+>>>>>>> 09b7086 (Add user routers)

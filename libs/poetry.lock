@@ -45,6 +45,7 @@ files = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "bcrypt"
 version = "4.2.1"
 description = "Modern password hashing for your software and your servers"
@@ -84,6 +85,8 @@ tests = ["pytest (>=3.2.1,!=3.3.0)"]
 typecheck = ["mypy"]
 
 [[package]]
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "black"
 version = "24.10.0"
 description = "The uncompromising code formatter."
@@ -210,6 +213,7 @@ dnspython = ">=2.0.0"
 idna = ">=2.0.0"
 
 [[package]]
+<<<<<<< HEAD
 name = "faker"
 version = "35.0.0"
 description = "Faker is a Python package that generates fake data for you."
@@ -226,6 +230,8 @@ python-dateutil = ">=2.4"
 typing-extensions = "*"
 
 [[package]]
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "greenlet"
 version = "3.1.1"
 description = "Lightweight in-process concurrent programming"
@@ -821,6 +827,7 @@ toml = ["tomli (>=2.0.1)"]
 yaml = ["pyyaml (>=6.0.1)"]
 
 [[package]]
+<<<<<<< HEAD
 name = "pyjwt"
 version = "2.10.1"
 description = "JSON Web Token implementation in Python"
@@ -839,6 +846,8 @@ docs = ["sphinx", "sphinx-rtd-theme", "zope.interface"]
 tests = ["coverage[toml] (==5.0.4)", "pytest (>=6.0.0,<7.0.0)"]
 
 [[package]]
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "pylint"
 version = "3.3.4"
 description = "python code static checker"
@@ -885,6 +894,7 @@ pluggy = ">=1.5,<2"
 dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments (>=2.7.2)", "requests", "setuptools", "xmlschema"]
 
 [[package]]
+<<<<<<< HEAD
 name = "python-dateutil"
 version = "2.9.0.post0"
 description = "Extensions to the standard Python datetime module"
@@ -900,6 +910,8 @@ files = [
 six = ">=1.5"
 
 [[package]]
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "python-dotenv"
 version = "1.0.1"
 description = "Read key-value pairs from a .env file and set them as environment variables"
@@ -915,6 +927,7 @@ files = [
 cli = ["click (>=5.0)"]
 
 [[package]]
+<<<<<<< HEAD
 name = "redis"
 version = "5.2.1"
 description = "Python client for Redis database and key-value store"
@@ -943,6 +956,8 @@ files = [
 ]
 
 [[package]]
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "sqlalchemy"
 version = "2.0.37"
 description = "Database Abstraction Library"
@@ -1065,4 +1080,8 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.12"
+<<<<<<< HEAD
 content-hash = "f7c1d49a626fc5cd767d1936d8aa5c7cb1cead6c5ee3248fcc45e31765c56677"
+=======
+content-hash = "e6123fd072cd28bcd885d7ed73caf8b3b7d320acec3c8f1a86d9f6a416dc37a3"
+>>>>>>> 09b7086 (Add user routers)

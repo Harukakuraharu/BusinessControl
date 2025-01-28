@@ -12,12 +12,17 @@ from alembic.config import Config
 from alembic.script import Script, ScriptDirectory
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 from database.core.settings import config
 from database.tests.utils import make_alembic_config
 =======
 from core.settings import config
 from tests.utils import make_alembic_config
 >>>>>>> a0a9e11 (Fix folders)
+=======
+from database.core.settings import config
+from database.tests.utils import make_alembic_config
+>>>>>>> 09b7086 (Add user routers)
 
 
 def get_revisions():

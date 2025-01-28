@@ -7,10 +7,14 @@ from alembic.config import Config
 from sqlalchemy.engine.url import make_url
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 from database.core.settings import config as project_config
 =======
 from core.settings import config as project_config
 >>>>>>> a0a9e11 (Fix folders)
+=======
+from database.core.settings import config as project_config
+>>>>>>> 09b7086 (Add user routers)
 
 
 def make_alembic_config(

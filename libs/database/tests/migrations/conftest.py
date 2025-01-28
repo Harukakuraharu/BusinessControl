@@ -12,8 +12,8 @@ from sqlalchemy.engine import Engine
 from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
 
-from core.settings import config
-from tests.utils import make_alembic_config, tmp_database
+from database.core.settings import config
+from database.tests.utils import make_alembic_config, tmp_database
 
 >>>>>>> a0a9e11 (Fix folders)
 

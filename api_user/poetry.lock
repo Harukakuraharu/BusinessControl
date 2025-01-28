@@ -56,6 +56,9 @@ trio = ["trio (>=0.26.1)"]
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "astroid"
 version = "3.3.8"
 description = "An abstract syntax tree for Python with inference support."
@@ -216,6 +219,7 @@ jupyter = ["ipython (>=7.8.0)", "tokenize-rt (>=3.2.0)"]
 uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
+<<<<<<< HEAD
 name = "certifi"
 version = "2024.12.14"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -230,6 +234,8 @@ files = [
 [[package]]
 =======
 >>>>>>> a0a9e11 (Fix folders)
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "cffi"
 version = "1.17.1"
 description = "Foreign Function Interface for Python calling C code."
@@ -312,6 +318,9 @@ pycparser = "*"
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "click"
 version = "8.1.8"
 description = "Composable command line interface toolkit"
@@ -340,8 +349,11 @@ files = [
 markers = {main = "platform_system == \"Windows\"", dev = "platform_system == \"Windows\" or sys_platform == \"win32\""}
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> a0a9e11 (Fix folders)
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "cryptography"
 version = "44.0.0"
 description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
@@ -395,6 +407,9 @@ test-randomorder = ["pytest-randomly"]
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "dill"
 version = "0.3.9"
 description = "serialize all of Python"
@@ -448,6 +463,7 @@ dnspython = ">=2.0.0"
 idna = ">=2.0.0"
 
 [[package]]
+<<<<<<< HEAD
 name = "faker"
 version = "35.0.0"
 description = "Faker is a Python package that generates fake data for you."
@@ -466,6 +482,8 @@ typing-extensions = "*"
 [[package]]
 =======
 >>>>>>> a0a9e11 (Fix folders)
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "fastapi"
 version = "0.115.7"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
@@ -575,6 +593,7 @@ docs = ["Sphinx", "furo"]
 test = ["objgraph", "psutil"]
 
 [[package]]
+<<<<<<< HEAD
 name = "gunicorn"
 version = "23.0.0"
 description = "WSGI HTTP Server for UNIX"
@@ -597,6 +616,8 @@ testing = ["coverage", "eventlet", "gevent", "pytest", "pytest-cov"]
 tornado = ["tornado (>=0.2)"]
 
 [[package]]
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "h11"
 version = "0.14.0"
 description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
@@ -609,6 +630,7 @@ files = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "httpcore"
 version = "1.0.7"
 description = "A minimal low-level HTTP client."
@@ -656,6 +678,8 @@ socks = ["socksio (==1.*)"]
 zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "idna"
 version = "3.10"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -672,6 +696,9 @@ all = ["flake8 (>=7.1.1)", "mypy (>=1.11.2)", "pytest (>=8.3.2)", "ruff (>=0.6.2
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "iniconfig"
 version = "2.0.0"
 description = "brain-dead simple config-ini parsing"
@@ -700,8 +727,11 @@ colors = ["colorama"]
 plugins = ["setuptools"]
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> a0a9e11 (Fix folders)
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "jwt"
 version = "1.3.1"
 description = "JSON Web Token library for Python 3."
@@ -895,7 +925,11 @@ version = "24.2"
 description = "Core utilities for Python packages"
 optional = false
 python-versions = ">=3.8"
+<<<<<<< HEAD
 groups = ["main", "dev"]
+=======
+groups = ["dev"]
+>>>>>>> 09b7086 (Add user routers)
 files = [
     {file = "packaging-24.2-py3-none-any.whl", hash = "sha256:09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759"},
     {file = "packaging-24.2.tar.gz", hash = "sha256:c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"},
@@ -1260,6 +1294,7 @@ pluggy = ">=1.5,<2"
 dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments (>=2.7.2)", "requests", "setuptools", "xmlschema"]
 
 [[package]]
+<<<<<<< HEAD
 name = "python-dateutil"
 version = "2.9.0.post0"
 description = "Extensions to the standard Python datetime module"
@@ -1275,6 +1310,8 @@ files = [
 six = ">=1.5"
 
 [[package]]
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "python-dotenv"
 version = "1.0.1"
 description = "Read key-value pairs from a .env file and set them as environment variables"
@@ -1290,6 +1327,7 @@ files = [
 cli = ["click (>=5.0)"]
 
 [[package]]
+<<<<<<< HEAD
 name = "redis"
 version = "5.2.1"
 description = "Python client for Redis database and key-value store"
@@ -1318,6 +1356,8 @@ files = [
 ]
 
 [[package]]
+=======
+>>>>>>> 09b7086 (Add user routers)
 name = "sniffio"
 version = "1.3.1"
 description = "Sniff out which async library your code is running under"
@@ -1490,7 +1530,11 @@ standard = ["colorama (>=0.4)", "httptools (>=0.6.3)", "python-dotenv (>=0.13)",
 lock-version = "2.1"
 python-versions = "^3.12"
 <<<<<<< HEAD
+<<<<<<< HEAD
 content-hash = "4ff9f7b9225d05cced442c1dfa8c192513e686ba69a2f793355cd5c1307e338d"
 =======
 content-hash = "4384e148b38d5f3c332fcf2d2eca5c494034462e0a3b12b2ee142aed70c12acb"
 >>>>>>> a0a9e11 (Fix folders)
+=======
+content-hash = "1915da6cc54ffc48042a839aa114095b2252e614f11afa35356f9f524fb3d360"
+>>>>>>> 09b7086 (Add user routers)

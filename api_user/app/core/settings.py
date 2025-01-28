@@ -3,7 +3,10 @@ from pydantic_settings import BaseSettings
 
 
 class Config(BaseSettings):
+<<<<<<< HEAD
     """Pull env config"""
+=======
+>>>>>>> 09b7086 (Add user routers)
 
     POSTGRES_USER: str = "user"
     POSTGRES_PASSWORD: str = "user"

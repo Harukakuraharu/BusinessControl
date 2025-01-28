@@ -1,12 +1,19 @@
+<<<<<<< HEAD
 from typing import Annotated, AsyncIterator
 
 import jwt
 from core.settings import config
 from crud.user_crud import UserCrud
+=======
+from typing import Annotated
+
+import jwt
+>>>>>>> 09b7086 (Add user routers)
 from database import models
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jwt.exceptions import InvalidTokenError
+<<<<<<< HEAD
 from schemas.schemas import UserResponse
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 
@@ -16,6 +23,18 @@ async def get_session() -> AsyncIterator[AsyncSession]:
     async with AsyncSession(
         create_async_engine(config.async_dsn)
     ) as session:  # type: ignore[arg-type]
+=======
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
+
+from app.core.settings import config
+from app.crud.user_crud import UserCrud
+
+from schemas.users import UserResponse
+
+
+async def get_session():
+    async with AsyncSession(create_async_engine(config.async_dsn)) as session:
+>>>>>>> 09b7086 (Add user routers)
         yield session
 
 
