@@ -6,7 +6,7 @@ import sqlalchemy as sa
 from alembic.config import Config
 from sqlalchemy.engine.url import make_url
 
-from core.settings import config as project_config
+from database.core.settings import config as project_config
 
 
 def make_alembic_config(

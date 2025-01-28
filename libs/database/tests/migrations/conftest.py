@@ -5,8 +5,8 @@ from alembic.config import Config
 from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
 
-from core.settings import config
-from tests.utils import make_alembic_config, tmp_database
+from database.core.settings import config
+from database.tests.utils import make_alembic_config, tmp_database
 
 
 @pytest.fixture(scope="package", name="pg_url")

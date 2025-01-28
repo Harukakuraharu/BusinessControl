@@ -11,8 +11,8 @@ from alembic.command import downgrade, upgrade
 from alembic.config import Config
 from alembic.script import Script, ScriptDirectory
 
-from core.settings import config
-from tests.utils import make_alembic_config
+from database.core.settings import config
+from database.tests.utils import make_alembic_config
 
 
 def get_revisions():

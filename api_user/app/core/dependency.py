@@ -1,15 +1,16 @@
 from typing import Annotated
 
 import jwt
+from database import models
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jwt.exceptions import InvalidTokenError
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 
-import models
-from core.settings import config
-from crud.users import UserCrud
-from schemas.schemas import UserResponse
+from app.core.settings import config
+from app.crud.user_crud import UserCrud
+
+from schemas.users import UserResponse
 
 
 async def get_session():

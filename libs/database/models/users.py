@@ -1,10 +1,10 @@
 import enum
 
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, false
 from sqlalchemy.orm import Mapped, mapped_column
 
-from models.base import Base
-from models.utils import intpk
+from database.models.base import Base
+from database.models.utils import intpk
 
 
 class UserRole(enum.Enum):
@@ -17,12 +17,12 @@ class User(Base):
     __tablename__ = "users"
 
     id: Mapped[intpk]
-    email: Mapped[str]
+    email: Mapped[str] = mapped_column(unique=True)
     password: Mapped[str]
     first_name: Mapped[str]
     last_name: Mapped[str]
-    is_super_admin: Mapped[bool]
-    is_admin: Mapped[bool]
+    is_super_admin: Mapped[bool] = mapped_column(server_default=false())
+    is_admin: Mapped[bool] = mapped_column(server_default=false())
 
 
 # create_compamy
