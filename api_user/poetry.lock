@@ -55,6 +55,7 @@ test = ["anyio[trio]", "coverage[toml] (>=7)", "exceptiongroup (>=1.2.0)", "hypo
 trio = ["trio (>=0.26.1)"]
 
 [[package]]
+<<<<<<< HEAD
 name = "astroid"
 version = "3.3.8"
 description = "An abstract syntax tree for Python with inference support."
@@ -227,6 +228,8 @@ files = [
 ]
 
 [[package]]
+=======
+>>>>>>> a0a9e11 (Fix folders)
 name = "cffi"
 version = "1.17.1"
 description = "Foreign Function Interface for Python calling C code."
@@ -308,6 +311,7 @@ files = [
 pycparser = "*"
 
 [[package]]
+<<<<<<< HEAD
 name = "click"
 version = "8.1.8"
 description = "Composable command line interface toolkit"
@@ -336,6 +340,8 @@ files = [
 markers = {main = "platform_system == \"Windows\"", dev = "platform_system == \"Windows\" or sys_platform == \"win32\""}
 
 [[package]]
+=======
+>>>>>>> a0a9e11 (Fix folders)
 name = "cryptography"
 version = "44.0.0"
 description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
@@ -388,6 +394,7 @@ test = ["certifi (>=2024)", "cryptography-vectors (==44.0.0)", "pretend (>=0.7)"
 test-randomorder = ["pytest-randomly"]
 
 [[package]]
+<<<<<<< HEAD
 name = "dill"
 version = "0.3.9"
 description = "serialize all of Python"
@@ -457,6 +464,8 @@ python-dateutil = ">=2.4"
 typing-extensions = "*"
 
 [[package]]
+=======
+>>>>>>> a0a9e11 (Fix folders)
 name = "fastapi"
 version = "0.115.7"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
@@ -662,6 +671,7 @@ files = [
 all = ["flake8 (>=7.1.1)", "mypy (>=1.11.2)", "pytest (>=8.3.2)", "ruff (>=0.6.2)"]
 
 [[package]]
+<<<<<<< HEAD
 name = "iniconfig"
 version = "2.0.0"
 description = "brain-dead simple config-ini parsing"
@@ -690,6 +700,8 @@ colors = ["colorama"]
 plugins = ["setuptools"]
 
 [[package]]
+=======
+>>>>>>> a0a9e11 (Fix folders)
 name = "jwt"
 version = "1.3.1"
 description = "JSON Web Token library for Python 3."
@@ -1477,4 +1489,8 @@ standard = ["colorama (>=0.4)", "httptools (>=0.6.3)", "python-dotenv (>=0.13)",
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.12"
+<<<<<<< HEAD
 content-hash = "4ff9f7b9225d05cced442c1dfa8c192513e686ba69a2f793355cd5c1307e338d"
+=======
+content-hash = "4384e148b38d5f3c332fcf2d2eca5c494034462e0a3b12b2ee142aed70c12acb"
+>>>>>>> a0a9e11 (Fix folders)

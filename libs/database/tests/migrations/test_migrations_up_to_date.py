@@ -9,7 +9,11 @@ from alembic.config import Config
 from alembic.runtime.migration import MigrationContext
 from sqlalchemy.engine.base import Engine
 
+<<<<<<< HEAD
 from database.models.base import Base
+=======
+from models import Base
+>>>>>>> a0a9e11 (Fix folders)
 
 
 def test_migrations_up_to_date(
