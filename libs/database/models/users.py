@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 from sqlalchemy import false
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -9,11 +10,16 @@ import enum
 
 from sqlalchemy import ForeignKey, false
 from sqlalchemy.orm import Mapped, mapped_column
+=======
+from sqlalchemy import false
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+>>>>>>> 3f2822f (Complete servis with admin and company)
 
 from database.models.base import Base
 from database.models.utils import intpk
 
 
+<<<<<<< HEAD
 class UserRole(enum.Enum):
     SUPER_MANAGER = "super_manager"
     MANAGER = "manager"
@@ -21,6 +27,8 @@ class UserRole(enum.Enum):
 >>>>>>> a0a9e11 (Fix folders)
 
 
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
 class User(Base):
     __tablename__ = "users"
 
@@ -33,6 +41,7 @@ class User(Base):
     last_name: Mapped[str]
     is_super_admin: Mapped[bool] = mapped_column(server_default=false())
     is_admin: Mapped[bool] = mapped_column(server_default=false())
+<<<<<<< HEAD
     organization: Mapped["Organization"] = relationship(  # type: ignore[name-defined]
         back_populates="user", lazy="joined"
     )
@@ -92,3 +101,8 @@ class CompanyEmployeers(Base):
     )
     role: Mapped[UserRole]
 >>>>>>> a0a9e11 (Fix folders)
+=======
+    organization: Mapped["Organization"] = relationship(
+        back_populates="user", lazy="joined"
+    )
+>>>>>>> 3f2822f (Complete servis with admin and company)

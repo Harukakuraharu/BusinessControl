@@ -5,14 +5,20 @@ from repository.base_crud import BaseCrud
 
 
 class AdminCrud(BaseCrud):
+<<<<<<< HEAD
     """Execution of the request in database for user model"""
 
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
     def __init__(self, session):
         super().__init__(session)
         self.model = models.User
 
     async def get_user(self, email: str) -> models.User:
+<<<<<<< HEAD
         """Get user in database with email"""
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
         stmt = sa.select(self.model).where(self.model.email == email)
         user = await self.session.scalar(stmt)
         if user is None:
@@ -23,14 +29,21 @@ class AdminCrud(BaseCrud):
 
 
 class CompanyCrud(BaseCrud):
+<<<<<<< HEAD
     """Execution of the request in database for company model"""
 
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
     def __init__(self, session):
         super().__init__(session)
         self.model = models.Company
 
+<<<<<<< HEAD
     async def get_company(self, user: models.User) -> models.Company:
         """Get users company on database"""
+=======
+    async def get_company(self, user):
+>>>>>>> 3f2822f (Complete servis with admin and company)
         if user.organization is None:
             raise HTTPException(
                 status.HTTP_404_NOT_FOUND, f"{self.model.__name__} not found"
@@ -43,22 +56,32 @@ class CompanyCrud(BaseCrud):
 
 
 class OrganizationCrud(BaseCrud):
+<<<<<<< HEAD
     """Execution of the request in database for organization model"""
 
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
     def __init__(self, session):
         super().__init__(session)
         self.model = models.Organization
 
 
 class NewsCrud(BaseCrud):
+<<<<<<< HEAD
     """Execution of the request in database for news model"""
 
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
     def __init__(self, session):
         super().__init__(session)
         self.model = models.News
 
+<<<<<<< HEAD
     async def check_owner(self, news_id: int, company_id: int) -> list:
         """Check news owner"""
+=======
+    async def check_owner(self, news_id: int, company_id: int):
+>>>>>>> 3f2822f (Complete servis with admin and company)
         news = await self.get_item_id(news_id)
         if news is None:
             raise HTTPException(status.HTTP_404_NOT_FOUND, "News not found")
@@ -70,8 +93,12 @@ class NewsCrud(BaseCrud):
             )
         return result
 
+<<<<<<< HEAD
     async def get_all_news(self, item_id: int) -> list:
         """Get owner news"""
+=======
+    async def get_all_news(self, item_id: int):
+>>>>>>> 3f2822f (Complete servis with admin and company)
         stmt = sa.select(self.model).where(self.model.company_id == item_id)
         result = await self.session.scalars(stmt)
         return result.unique().all()

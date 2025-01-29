@@ -928,6 +928,9 @@ cli = ["click (>=5.0)"]
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
 name = "redis"
 version = "5.2.1"
 description = "Python client for Redis database and key-value store"
@@ -944,6 +947,7 @@ hiredis = ["hiredis (>=3.0.0)"]
 ocsp = ["cryptography (>=36.0.1)", "pyopenssl (==23.2.1)", "requests (>=2.31.0)"]
 
 [[package]]
+<<<<<<< HEAD
 name = "six"
 version = "1.17.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -958,6 +962,8 @@ files = [
 [[package]]
 =======
 >>>>>>> 09b7086 (Add user routers)
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
 name = "sqlalchemy"
 version = "2.0.37"
 description = "Database Abstraction Library"
@@ -1081,7 +1087,11 @@ files = [
 lock-version = "2.1"
 python-versions = "^3.12"
 <<<<<<< HEAD
+<<<<<<< HEAD
 content-hash = "f7c1d49a626fc5cd767d1936d8aa5c7cb1cead6c5ee3248fcc45e31765c56677"
 =======
 content-hash = "e6123fd072cd28bcd885d7ed73caf8b3b7d320acec3c8f1a86d9f6a416dc37a3"
 >>>>>>> 09b7086 (Add user routers)
+=======
+content-hash = "77843bab75ecc3f236c2f5f4fe31dbd5fcfb4d5a0fe4fbe7d6e338bf3910f56f"
+>>>>>>> 3f2822f (Complete servis with admin and company)

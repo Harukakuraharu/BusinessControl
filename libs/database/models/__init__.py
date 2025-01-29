@@ -2,6 +2,7 @@ from typing import Type, TypeVar
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 from database.models.base import Base
 from database.models.companies import Company, News, Organization, UserRole
 from database.models.meetings import Meeting, MeetingUser
@@ -21,6 +22,11 @@ from models.users import Company, CompanyEmployeers, User, UserRole
 from database.models.base import Base
 from database.models.users import Company, CompanyEmployeers, User, UserRole
 >>>>>>> 09b7086 (Add user routers)
+=======
+from database.models.users import User
+from database.models.base import Base
+from database.models.companies import Company, Organization, UserRole, News
+>>>>>>> 3f2822f (Complete servis with admin and company)
 
 
 MODEL = TypeVar("MODEL", bound=Base)

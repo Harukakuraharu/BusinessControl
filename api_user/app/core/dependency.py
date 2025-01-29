@@ -26,10 +26,10 @@ async def get_session() -> AsyncIterator[AsyncSession]:
 =======
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 
-from app.core.settings import config
-from app.crud.user_crud import UserCrud
+from core.settings import config
+from crud.user_crud import UserCrud
 
-from schemas.users import UserResponse
+from schemas.schemas import UserResponse
 
 
 async def get_session():

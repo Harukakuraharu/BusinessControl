@@ -1,6 +1,7 @@
 import sqlalchemy as sa
 from database import models
 <<<<<<< HEAD
+<<<<<<< HEAD
 from fastapi import HTTPException, status
 from repository.base_crud import BaseCrudRestrict
 from schemas import schemas
@@ -11,9 +12,12 @@ class UserCrud(BaseCrudRestrict):
     """Execution of the request in database for user model"""
 
 =======
+=======
+from fastapi import HTTPException, status
+from repository.base_crud import BaseCrudRestrict
+from sqlalchemy.exc import IntegrityError
+>>>>>>> 3f2822f (Complete servis with admin and company)
 
-from crud.base_crud import BaseCrudRestrict
-from fastapi import status, HTTPException
 
 class UserCrud(BaseCrudRestrict):
 >>>>>>> 09b7086 (Add user routers)
@@ -34,19 +38,29 @@ class UserCrud(BaseCrudRestrict):
             )
         return user
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 class JoinOrganizationCrud(BaseCrudRestrict):
     """Execution of the request for add user in company"""
 
+=======
+
+
+class JoinOrganizationCrud(BaseCrudRestrict):
+>>>>>>> 3f2822f (Complete servis with admin and company)
     def __init__(self, session):
         super().__init__(session)
         self.model = models.Organization
 
+<<<<<<< HEAD
     async def create_user_organization(
         self, data: schemas.JoinCompany
     ) -> models.Organization:
         """Execution of the request for add user in company"""
+=======
+    async def create_user_organization(self, data):
+>>>>>>> 3f2822f (Complete servis with admin and company)
         try:
             stmt = (
                 sa.insert(models.Organization)
@@ -64,5 +78,8 @@ class JoinOrganizationCrud(BaseCrudRestrict):
                 ) from error
             raise error
         return organization
+<<<<<<< HEAD
 =======
 >>>>>>> 09b7086 (Add user routers)
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)

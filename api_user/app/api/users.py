@@ -9,17 +9,10 @@ from services.user_services import UserService
 from fastapi import status
 from fastapi.responses import JSONResponse
 from fastapi.routing import APIRouter
+from services.user_services import UserService
 
-from app.core import dependency
-from app.services.user_services import UserService
-
-from schemas.users import (
-    Token,
-    UserCreate,
-    UserLogin,
-    UserResponse,
-    UserUpdate,
-)
+from core import dependency
+from schemas import schemas
 
 >>>>>>> 09b7086 (Add user routers)
 
@@ -30,6 +23,7 @@ user_routers = APIRouter(
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @user_routers.post("/registration/", response_model=schemas.UserResponse)
 async def create_user(
     session: dependency.AsyncSessionDependency, data: schemas.UserCreate
@@ -38,25 +32,39 @@ async def create_user(
 async def create_user(
     session: dependency.AsyncSessionDependency, data: UserCreate
 >>>>>>> 09b7086 (Add user routers)
+=======
+@user_routers.post("/registration/", response_model=schemas.UserResponse)
+async def create_user(
+    session: dependency.AsyncSessionDependency, data: schemas.UserCreate
+>>>>>>> 3f2822f (Complete servis with admin and company)
 ):
     """Registration of all user"""
     return await UserService(session).create_user(data)
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
 @user_routers.post("/auth/", response_model=schemas.Token)
 async def login(
     session: dependency.AsyncSessionDependency, data: schemas.UserLogin
 ):
+<<<<<<< HEAD
 =======
 @user_routers.post("/auth/", response_model=Token)
 async def login(session: dependency.AsyncSessionDependency, data: UserLogin):
 >>>>>>> 09b7086 (Add user routers)
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
     """Auth user"""
     return await UserService(session).login(data)
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
 @user_routers.post(
     "/join_company/", response_model=schemas.JoinCompanyResponse
 )
@@ -70,9 +78,12 @@ async def join_company(
 
 
 @user_routers.get("/me/", response_model=schemas.UserResponse)
+<<<<<<< HEAD
 =======
 @user_routers.get("/me/", response_model=UserResponse)
 >>>>>>> 09b7086 (Add user routers)
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
 async def get_users_me(
     current_user: dependency.GetCurrentUserDependency,
 ):
@@ -90,11 +101,15 @@ async def update_user(
     return current_user
 
 
-@user_routers.patch("/me/", response_model=UserResponse)
+@user_routers.patch("/me/", response_model=schemas.UserResponse)
 async def update_user(
     session: dependency.AsyncSessionDependency,
+<<<<<<< HEAD
     data: UserUpdate,
 >>>>>>> 09b7086 (Add user routers)
+=======
+    data: schemas.UserUpdate,
+>>>>>>> 3f2822f (Complete servis with admin and company)
     current_user: dependency.GetCurrentUserDependency,
 ):
     """Update info about youself"""

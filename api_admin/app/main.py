@@ -3,12 +3,20 @@ from admin_panel import admin_panel as sqladmin
 from fastapi import FastAPI
 from sqladmin import Admin
 
+<<<<<<< HEAD
 from api.api_admin import (
+=======
+from app.api.api_admin import (
+>>>>>>> 3f2822f (Complete servis with admin and company)
     admin_routers,
     company_routers,
     organization_routers,
     super_admin_routers,
 )
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3f2822f (Complete servis with admin and company)
 from core.settings import config
 
 

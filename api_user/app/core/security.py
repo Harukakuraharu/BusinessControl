@@ -21,9 +21,9 @@ import bcrypt
 import jwt
 from fastapi import HTTPException, status
 
-from app.core.dependency import AsyncSessionDependency
-from app.core.settings import config
-from app.crud.user_crud import UserCrud
+from core.dependency import AsyncSessionDependency
+from core.settings import config
+from crud.user_crud import UserCrud
 
 
 def hash_password(password: str) -> str:

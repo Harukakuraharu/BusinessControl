@@ -111,6 +111,7 @@ gssauth = ["gssapi", "sspilib"]
 test = ["distro (>=1.9.0,<1.10.0)", "flake8 (>=6.1,<7.0)", "flake8-pyi (>=24.1.0,<24.2.0)", "gssapi", "k5test", "mypy (>=1.8.0,<1.9.0)", "sspilib", "uvloop (>=0.15.3)"]
 
 [[package]]
+<<<<<<< HEAD
 name = "bcrypt"
 version = "4.2.1"
 description = "Modern password hashing for your software and your servers"
@@ -150,6 +151,8 @@ tests = ["pytest (>=3.2.1,!=3.3.0)"]
 typecheck = ["mypy"]
 
 [[package]]
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
 name = "black"
 version = "24.10.0"
 description = "The uncompromising code formatter."
@@ -288,6 +291,7 @@ dnspython = ">=2.0.0"
 idna = ">=2.0.0"
 
 [[package]]
+<<<<<<< HEAD
 name = "faker"
 version = "35.0.0"
 description = "Faker is a Python package that generates fake data for you."
@@ -304,6 +308,8 @@ python-dateutil = ">=2.4"
 typing-extensions = "*"
 
 [[package]]
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
 name = "fastapi"
 version = "0.115.7"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
@@ -413,6 +419,7 @@ docs = ["Sphinx", "furo"]
 test = ["objgraph", "psutil"]
 
 [[package]]
+<<<<<<< HEAD
 name = "gunicorn"
 version = "23.0.0"
 description = "WSGI HTTP Server for UNIX"
@@ -435,6 +442,8 @@ testing = ["coverage", "eventlet", "gevent", "pytest", "pytest-cov"]
 tornado = ["tornado (>=0.2)"]
 
 [[package]]
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
 name = "h11"
 version = "0.14.0"
 description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
@@ -726,7 +735,11 @@ version = "24.2"
 description = "Core utilities for Python packages"
 optional = false
 python-versions = ">=3.8"
+<<<<<<< HEAD
 groups = ["main", "dev"]
+=======
+groups = ["dev"]
+>>>>>>> 3f2822f (Complete servis with admin and company)
 files = [
     {file = "packaging-24.2-py3-none-any.whl", hash = "sha256:09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759"},
     {file = "packaging-24.2.tar.gz", hash = "sha256:c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"},
@@ -1075,6 +1088,7 @@ pluggy = ">=1.5,<2"
 dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments (>=2.7.2)", "requests", "setuptools", "xmlschema"]
 
 [[package]]
+<<<<<<< HEAD
 name = "python-dateutil"
 version = "2.9.0.post0"
 description = "Extensions to the standard Python datetime module"
@@ -1090,6 +1104,8 @@ files = [
 six = ">=1.5"
 
 [[package]]
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
 name = "python-dotenv"
 version = "1.0.1"
 description = "Read key-value pairs from a .env file and set them as environment variables"
@@ -1133,6 +1149,7 @@ hiredis = ["hiredis (>=3.0.0)"]
 ocsp = ["cryptography (>=36.0.1)", "pyopenssl (==23.2.1)", "requests (>=2.31.0)"]
 
 [[package]]
+<<<<<<< HEAD
 name = "six"
 version = "1.17.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -1145,6 +1162,8 @@ files = [
 ]
 
 [[package]]
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
 name = "sniffio"
 version = "1.3.1"
 description = "Sniff out which async library your code is running under"
@@ -1356,4 +1375,8 @@ email = ["email-validator"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.12"
+<<<<<<< HEAD
 content-hash = "f2a5bde1251e74b5a7d4d859350a2ed369c071a21a59d0b4c761c709de5690b6"
+=======
+content-hash = "0e22b2ef559bd1392bf87525790a82298cb80377ead40101386a049e99796827"
+>>>>>>> 3f2822f (Complete servis with admin and company)

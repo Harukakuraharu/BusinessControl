@@ -16,9 +16,12 @@ sqladmin = "^0.20.1"
 psycopg2-binary = "^2.9.10"
 itsdangerous = "^2.2.0"
 httpx = "^0.28.1"
+<<<<<<< HEAD
 faker = "^35.0.0"
 bcrypt = "^4.2.1"
 gunicorn = "^23.0.0"
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
 
 
 [tool.poetry.group.dev.dependencies]

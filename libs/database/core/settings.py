@@ -21,6 +21,7 @@ class Config(BaseSettings):
     POSTGRES_DB: str = "db"
     DB_HOST: str = "localhost"
     DB_PORT: int = 5432
+    REDIS_HOST: str = "localhost"
 
 <<<<<<< HEAD
     REDIS_HOST: str = "localhost"
@@ -50,12 +51,18 @@ class Config(BaseSettings):
         )
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
     @computed_field
     def redis_url(self) -> str:
         """URL for redis"""
         return f"redis://{self.REDIS_HOST}:6379/1"
 
+<<<<<<< HEAD
 =======
 >>>>>>> a0a9e11 (Fix folders)
+=======
+>>>>>>> 3f2822f (Complete servis with admin and company)
 
 config = Config()

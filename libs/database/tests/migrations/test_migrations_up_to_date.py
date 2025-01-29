@@ -11,6 +11,7 @@ from sqlalchemy.engine.base import Engine
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 from database.models.base import Base
 =======
 from models import Base
@@ -18,6 +19,9 @@ from models import Base
 =======
 from database.models import Base
 >>>>>>> 09b7086 (Add user routers)
+=======
+from database.models.base import Base
+>>>>>>> 3f2822f (Complete servis with admin and company)
 
 
 def test_migrations_up_to_date(
