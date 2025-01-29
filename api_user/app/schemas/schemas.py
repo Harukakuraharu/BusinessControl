@@ -1,5 +1,6 @@
-from typing import Annotated
+from typing import Annotated, Optional
 
+from database import models
 from pydantic import BaseModel, ConfigDict, EmailStr
 from pydantic.functional_validators import AfterValidator
 
@@ -11,6 +12,11 @@ def validate_password(password: str) -> str:
 
 
 Password = Annotated[str, AfterValidator(validate_password)]
+
+
+class Organization(BaseModel):
+    role: models.UserRole
+    compamy_id: int
 
 
 class User(BaseModel):
@@ -25,6 +31,9 @@ class UserCreate(User):
 
 class UserResponse(User):
     id: int
+    is_admin: bool
+    is_super_admin: bool
+    organization: Optional["Organization"]
     model_config = ConfigDict(from_attributes=True)
 
 
@@ -40,3 +49,12 @@ class UserLogin(BaseModel):
 class UserUpdate(BaseModel):
     first_name: str | None = None
     last_name: str | None = None
+
+
+class JoinCompany(BaseModel):
+    code: str
+
+
+class JoinCompanyResponse(BaseModel):
+    company_id: int
+    user_id: int

@@ -47,7 +47,6 @@ class BaseCrud:
         return result.unique().all()
 
 
-
 class BaseCrudRestrict(BaseCrud):
     def __init__(self, session):
         super().__init__(session)
