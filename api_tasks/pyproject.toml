@@ -7,6 +7,7 @@ fastapi = "^0.115.7"
 sqlalchemy = "^2.0.37"
 psycopg2-binary = "^2.9.10"
 alembic = "^1.14.1"
+<<<<<<< HEAD
 pydantic = {extras = ["email"], version = "^2.10.6"}
 uvicorn = {extras = ["standart"], version = "^0.34.0"}
 pydantic-settings = "^2.7.1"
@@ -17,6 +18,10 @@ bcrypt = "^4.2.1"
 httpx = "^0.28.1"
 faker = "^35.0.0"
 gunicorn = "^23.0.0"
+=======
+pydantic = {extras = ["settings"], version = "^2.10.6"}
+uvicorn = {extras = ["standart"], version = "^0.34.0"}
+>>>>>>> d0ff108 (Added new servise)
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.4"
