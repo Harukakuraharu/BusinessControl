@@ -1,25 +1,29 @@
+import json
 from datetime import timedelta
 
+import sqlalchemy as sa
+from database import models
 from fastapi import HTTPException, status
+from redis_cli.redis_client import redis_client
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core import security
-from app.core.settings import config
-from app.crud.user_crud import UserCrud
-
-from schemas.users import Token
+from core import security
+from core.settings import config
+from crud.user_crud import JoinOrganizationCrud, UserCrud
+from schemas import schemas
 
 
 class UserService:
     def __init__(self, session: AsyncSession):
         self.session = session
         self.crud = UserCrud(self.session)
+        self.organization_crud = JoinOrganizationCrud(self.session)
 
     async def create_user(self, data):
         data.password = security.hash_password(data.password)
         try:
-            user = await UserCrud(self.session).create_or_update(
+            user = await self.crud.create_or_update(
                 data.model_dump(), "create"
             )
             await self.session.commit()
@@ -31,6 +35,7 @@ class UserService:
                     "User already exists",
                 ) from error
             raise error
+        return user
 
     async def login(self, data):
         user = await security.auth(self.session, data.email, data.password)
@@ -40,18 +45,38 @@ class UserService:
         access_token = security.create_access_token(
             data={"sub": user.email}, expires_delta=access_token_expires
         )
-        return Token(access_token=access_token)
+        return schemas.Token(access_token=access_token)
 
     async def update_user(self, data, current_user):
         update_data = data.model_dump(exclude_unset=True)
         update_data["id"] = current_user.id
-        user = await UserCrud(self.session).create_or_update(
-            update_data, "update"
-        )
+        user = self.crud.create_or_update(update_data, "update")
         await self.session.commit()
         await self.session.refresh(user)
         return user
 
     async def delete_user(self, current_user):
-        await UserCrud(self.session).delete_item(current_user.id)
+        await self.crud.delete_item(current_user.id)
         await self.session.commit()
+
+    async def join_company(self, current_user, user_data):
+        code = redis_client.get(user_data.code)
+        if code is None:
+            raise HTTPException(
+                status.HTTP_400_BAD_REQUEST,
+                "Incorrect code",
+            )
+        data = json.loads(code)
+        if data["role"] == "manager":
+            data["role"] = models.UserRole.MANAGER
+        else:
+            data["role"] = models.UserRole.EMPLOYEE
+        create_data = {
+            "user_id": current_user.id,
+            "company_id": data["company_id"],
+            "role": data["role"],
+        }
+        result = await self.organization_crud.create_user_organization(
+            create_data
+        )
+        return result

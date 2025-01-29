@@ -1,21 +1,34 @@
 [tool.poetry]
 package-mode = false
 
+
 [tool.poetry.dependencies]
 python = "^3.12"
+fastapi = "^0.115.7"
 sqlalchemy = "^2.0.37"
 pydantic-settings = "^2.7.1"
-psycopg2-binary = "^2.9.10"
+uvicorn = {extras = ["standart"], version = "^0.34.0"}
 pydantic = {extras = ["email"], version = "^2.10.6"}
-alembic = "^1.14.1"
+asyncpg = "^0.30.0"
+pyjwt = "^2.10.1"
 redis = "^5.2.1"
+sqladmin = "^0.20.1"
+psycopg2-binary = "^2.9.10"
+itsdangerous = "^2.2.0"
+httpx = "^0.28.1"
+
 
 [tool.poetry.group.dev.dependencies]
-pylint = "^3.3.4"
 pytest = "^8.3.4"
 mypy = "^1.14.1"
-isort = "^6.0.0"
 black = "^24.10.0"
+isort = "^6.0.0"
+pylint = "^3.3.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
 
 # black
 [tool.black]
@@ -43,4 +56,4 @@ disable = ["C0114", "C0115", "C0116", "W1514", "W3101", "R0903", "C0103"]
 # pytest
 [tool.pytest.ini_options]
 addopts = "-x"
-testpaths = ["database/tests"]
+testpaths = ["app/tests"]

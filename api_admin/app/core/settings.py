@@ -1,19 +1,19 @@
-from pathlib import Path
-
-from pydantic import computed_field
+from pydantic import Field, computed_field
 from pydantic_settings import BaseSettings
 
 
 class Config(BaseSettings):
-
-    ROOT_DIR: Path = Path(__file__).parent.parent.resolve()
 
     POSTGRES_USER: str = "user"
     POSTGRES_PASSWORD: str = "user"
     POSTGRES_DB: str = "db"
     DB_HOST: str = "localhost"
     DB_PORT: int = 5432
-    REDIS_HOST: str = "localhost"
+
+    SECRET_KEY: str = Field(default="")
+    ALGORITHM: str = Field(default="")
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 100
+    ADMIN_PANEL: str = "admin_panel"
 
     @computed_field
     def async_dsn(self) -> str:
@@ -32,11 +32,6 @@ class Config(BaseSettings):
             f"{self.POSTGRES_PASSWORD}@{self.DB_HOST}:"
             f"{self.DB_PORT}/{self.POSTGRES_DB}"
         )
-
-    @computed_field
-    def redis_url(self) -> str:
-        """URL for redis"""
-        return f"redis://{self.REDIS_HOST}:6379/1"
 
 
 config = Config()

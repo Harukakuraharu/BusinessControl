@@ -9,7 +9,7 @@ from alembic.config import Config
 from alembic.runtime.migration import MigrationContext
 from sqlalchemy.engine.base import Engine
 
-from database.models import Base
+from database.models.base import Base
 
 
 def test_migrations_up_to_date(
