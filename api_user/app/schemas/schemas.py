@@ -16,7 +16,8 @@ Password = Annotated[str, AfterValidator(validate_password)]
 
 class Organization(BaseModel):
     role: models.UserRole
-    compamy_id: int
+    company_id: int
+    model_config = ConfigDict(from_attributes=True)
 
 
 class User(BaseModel):

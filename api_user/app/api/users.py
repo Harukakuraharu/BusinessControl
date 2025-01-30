@@ -46,8 +46,8 @@ async def get_users_me(
     current_user: dependency.GetCurrentUserDependency,
 ):
     """Get info about current user"""
-    return current_user
-
+    user = current_user
+    return user
 
 @user_routers.patch("/me/", response_model=schemas.UserResponse)
 async def update_user(
