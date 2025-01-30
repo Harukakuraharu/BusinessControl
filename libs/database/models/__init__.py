@@ -26,8 +26,13 @@ from database.models.users import Company, CompanyEmployeers, User, UserRole
 from database.models.users import User
 from database.models.base import Base
 from database.models.companies import Company, Organization, UserRole, News
+<<<<<<< HEAD
 >>>>>>> 3f2822f (Complete servis with admin and company)
 
+=======
+from database.models.tasks import Task, TaskStatus, TaskUser, UserTaskRole, Motivation
+from database.models.meetings import Meeting, MeetingUser
+>>>>>>> 0c00bcb (Complete servis with tasks and meetings)
 
 MODEL = TypeVar("MODEL", bound=Base)
 

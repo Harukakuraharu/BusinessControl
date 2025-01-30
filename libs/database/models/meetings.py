@@ -1,6 +1,9 @@
 import datetime
 
+<<<<<<< HEAD
 import sqlalchemy as sa
+=======
+>>>>>>> 0c00bcb (Complete servis with tasks and meetings)
 from sqlalchemy import ForeignKey, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -14,7 +17,11 @@ class Meeting(Base):
     id: Mapped[intpk]
     title: Mapped[str]
     date: Mapped[datetime.date]
+<<<<<<< HEAD
     time: Mapped[datetime.time] = mapped_column(sa.Time(timezone=False))
+=======
+    time: Mapped[datetime.time]
+>>>>>>> 0c00bcb (Complete servis with tasks and meetings)
     meeting_user: Mapped[list["MeetingUser"]] = relationship(
         back_populates="meetings", lazy="selectin"
     )
@@ -23,7 +30,11 @@ class Meeting(Base):
 class MeetingUser(Base):
     __tablename__ = "meeting_user"
     __table_args__ = (UniqueConstraint("meeting_id", "user_id"),)
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 0c00bcb (Complete servis with tasks and meetings)
     id: Mapped[intpk]
     user_id: Mapped[int] = mapped_column(
         ForeignKey("users.id", ondelete="CASCADE")
@@ -31,7 +42,11 @@ class MeetingUser(Base):
     meeting_id: Mapped[int] = mapped_column(
         ForeignKey("meetings.id", ondelete="CASCADE")
     )
+<<<<<<< HEAD
     users: Mapped["User"] = relationship(  # type: ignore[name-defined]
+=======
+    users: Mapped["User"] = relationship(
+>>>>>>> 0c00bcb (Complete servis with tasks and meetings)
         back_populates="meeting_user", lazy="joined"
     )
     meetings: Mapped[Meeting] = relationship(

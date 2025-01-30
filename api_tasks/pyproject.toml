@@ -8,6 +8,7 @@ sqlalchemy = "^2.0.37"
 psycopg2-binary = "^2.9.10"
 alembic = "^1.14.1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 pydantic = {extras = ["email"], version = "^2.10.6"}
 uvicorn = {extras = ["standart"], version = "^0.34.0"}
 pydantic-settings = "^2.7.1"
@@ -22,6 +23,14 @@ gunicorn = "^23.0.0"
 pydantic = {extras = ["settings"], version = "^2.10.6"}
 uvicorn = {extras = ["standart"], version = "^0.34.0"}
 >>>>>>> d0ff108 (Added new servise)
+=======
+pydantic = {extras = ["email"], version = "^2.10.6"}
+uvicorn = {extras = ["standart"], version = "^0.34.0"}
+pydantic-settings = "^2.7.1"
+pyjwt = "^2.10.1"
+redis = "^5.2.1"
+asyncpg = "^0.30.0"
+>>>>>>> 0c00bcb (Complete servis with tasks and meetings)
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.4"

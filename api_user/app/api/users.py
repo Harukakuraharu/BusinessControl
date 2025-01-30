@@ -89,9 +89,14 @@ async def get_users_me(
 ):
     """Get info about current user"""
 <<<<<<< HEAD
+<<<<<<< HEAD
     user = current_user
     return user
 
+=======
+    user = current_user
+    return user
+>>>>>>> 0c00bcb (Complete servis with tasks and meetings)
 
 @user_routers.patch("/me/", response_model=schemas.UserResponse)
 async def update_user(

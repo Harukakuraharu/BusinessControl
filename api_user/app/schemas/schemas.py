@@ -32,7 +32,8 @@ class User(BaseModel):
 
 =======
     role: models.UserRole
-    compamy_id: int
+    company_id: int
+    model_config = ConfigDict(from_attributes=True)
 
 
 class User(BaseModel):

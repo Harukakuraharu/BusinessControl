@@ -105,4 +105,16 @@ class CompanyEmployeers(Base):
     organization: Mapped["Organization"] = relationship(
         back_populates="user", lazy="joined"
     )
+<<<<<<< HEAD
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+    tasks_user: Mapped[list["TaskUser"]] = relationship(
+        back_populates="users", lazy="selectin"
+    )
+    meeting_user: Mapped[list["MeetingUser"]] = relationship(
+        back_populates="users", lazy="selectin"
+    )
+    motivations: Mapped[list["Motivation"]] = relationship(
+        back_populates="users", lazy="joined"
+    )   
+>>>>>>> 0c00bcb (Complete servis with tasks and meetings)

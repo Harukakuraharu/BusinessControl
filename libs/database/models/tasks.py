@@ -28,9 +28,13 @@ class Task(Base):
     descriptions: Mapped[str]
     status: Mapped[TaskStatus]
     comments: Mapped[str] = mapped_column(nullable=True)
+<<<<<<< HEAD
     date: Mapped[datetime.date] = mapped_column(
         server_default=func.now()  # pylint: disable=E1102
     )
+=======
+    time: Mapped[datetime.date] = mapped_column(server_default=func.now())
+>>>>>>> 0c00bcb (Complete servis with tasks and meetings)
     tasks_user: Mapped[list["TaskUser"]] = relationship(
         back_populates="tasks", lazy="selectin"
     )
@@ -54,7 +58,11 @@ class TaskUser(Base):
     tasks: Mapped[Task] = relationship(
         back_populates="tasks_user", lazy="joined"
     )
+<<<<<<< HEAD
     users: Mapped["User"] = relationship(  # type: ignore[name-defined]
+=======
+    users: Mapped["User"] = relationship(
+>>>>>>> 0c00bcb (Complete servis with tasks and meetings)
         back_populates="tasks_user", lazy="joined"
     )
 
@@ -74,7 +82,11 @@ class Motivation(Base):
         ForeignKey("users.id", ondelete="CASCADE")
     )
     grade: Mapped[int]
+<<<<<<< HEAD
     users: Mapped["User"] = relationship(  # type: ignore[name-defined]
+=======
+    users: Mapped["User"] = relationship(
+>>>>>>> 0c00bcb (Complete servis with tasks and meetings)
         back_populates="motivations", lazy="joined"
     )
     tasks: Mapped[Task] = relationship(
