@@ -9,6 +9,9 @@ psycopg2-binary = "^2.9.10"
 pydantic = {extras = ["email"], version = "^2.10.6"}
 alembic = "^1.14.1"
 redis = "^5.2.1"
+faker = "^35.0.0"
+bcrypt = "^4.2.1"
+pyjwt = "^2.10.1"
 
 [tool.poetry.group.dev.dependencies]
 pylint = "^3.3.4"
