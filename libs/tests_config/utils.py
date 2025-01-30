@@ -87,7 +87,10 @@ async def async_tmp_database(
 
 
 def hash_password(password: str) -> str:
+<<<<<<< HEAD
     """Hash password before insert in database"""
+=======
+>>>>>>> 6230ac8 (Added api tests)
     return bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
 
 
@@ -95,12 +98,18 @@ def check_password(
     password: str,
     hashed_password: str,
 ) -> bool:
+<<<<<<< HEAD
     """Check get and hash pawword on database"""
+=======
+>>>>>>> 6230ac8 (Added api tests)
     return bcrypt.checkpw(password.encode(), hashed_password.encode())
 
 
 def create_access_token(data: dict, expires_delta: timedelta | None = None):
+<<<<<<< HEAD
     """Create token for auth"""
+=======
+>>>>>>> 6230ac8 (Added api tests)
     to_encode = data.copy()
     if expires_delta:
         expire = datetime.now(timezone.utc) + expires_delta

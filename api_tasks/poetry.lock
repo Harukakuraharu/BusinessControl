@@ -136,6 +136,9 @@ test = ["distro (>=1.9.0,<1.10.0)", "flake8 (>=6.1,<7.0)", "flake8-pyi (>=24.1.0
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "bcrypt"
 version = "4.2.1"
 description = "Modern password hashing for your software and your servers"
@@ -175,10 +178,13 @@ tests = ["pytest (>=3.2.1,!=3.3.0)"]
 typecheck = ["mypy"]
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> d0ff108 (Added new servise)
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "black"
 version = "25.1.0"
 description = "The uncompromising code formatter."
@@ -225,6 +231,9 @@ uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "certifi"
 version = "2024.12.14"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -237,8 +246,11 @@ files = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> d0ff108 (Added new servise)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "click"
 version = "8.1.8"
 description = "Composable command line interface toolkit"
@@ -325,6 +337,9 @@ idna = ">=2.0.0"
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "faker"
 version = "35.0.0"
 description = "Faker is a Python package that generates fake data for you."
@@ -341,10 +356,13 @@ python-dateutil = ">=2.4"
 typing-extensions = "*"
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> d0ff108 (Added new servise)
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "fastapi"
 version = "0.115.7"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
@@ -492,6 +510,9 @@ files = [
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "httpcore"
 version = "1.0.7"
 description = "A minimal low-level HTTP client."
@@ -539,8 +560,11 @@ socks = ["socksio (==1.*)"]
 zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> d0ff108 (Added new servise)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "idna"
 version = "3.10"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -1134,6 +1158,9 @@ dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments
 [[package]]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "python-dateutil"
 version = "2.9.0.post0"
 description = "Extensions to the standard Python datetime module"
@@ -1149,8 +1176,11 @@ files = [
 six = ">=1.5"
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "python-dotenv"
 version = "1.0.1"
 description = "Read key-value pairs from a .env file and set them as environment variables"
@@ -1183,6 +1213,9 @@ ocsp = ["cryptography (>=36.0.1)", "pyopenssl (==23.2.1)", "requests (>=2.31.0)"
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "six"
 version = "1.17.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -1195,10 +1228,13 @@ files = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> d0ff108 (Added new servise)
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "sniffio"
 version = "1.3.1"
 description = "Sniff out which async library your code is running under"
@@ -1372,6 +1408,7 @@ lock-version = "2.1"
 python-versions = "^3.12"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 content-hash = "fe15db7c1425da8db1375ac5deb64c07b4c1ba6cdc3a76d17faccf9be256af09"
 =======
 content-hash = "dcce013938099d475cde0b337b26e899f76b8929ab7ea5040be223555ebfa816"
@@ -1379,3 +1416,6 @@ content-hash = "dcce013938099d475cde0b337b26e899f76b8929ab7ea5040be223555ebfa816
 =======
 content-hash = "177530b20cc35d4745307328e8003fbbb0ebff56751ee91491b416ab7f025c1d"
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+content-hash = "2fd6e8422f7b5a50cd203ac827db05e56ff5cc35e76263d34708cdff3e35732f"
+>>>>>>> 6230ac8 (Added api tests)

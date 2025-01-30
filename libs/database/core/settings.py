@@ -1,10 +1,14 @@
 from pathlib import Path
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 from pydantic import Field, computed_field
 =======
 from pydantic import computed_field
 >>>>>>> a0a9e11 (Fix folders)
+=======
+from pydantic import computed_field, Field
+>>>>>>> 6230ac8 (Added api tests)
 from pydantic_settings import BaseSettings
 
 
@@ -21,8 +25,10 @@ class Config(BaseSettings):
     POSTGRES_DB: str = "db"
     DB_HOST: str = "localhost"
     DB_PORT: int = 5432
+
     REDIS_HOST: str = "localhost"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     REDIS_HOST: str = "localhost"
 
@@ -32,6 +38,11 @@ class Config(BaseSettings):
 
 =======
 >>>>>>> a0a9e11 (Fix folders)
+=======
+    SECRET_KEY: str = Field(default="")
+    ALGORITHM: str = Field(default="")
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 100
+>>>>>>> 6230ac8 (Added api tests)
     @computed_field
     def async_dsn(self) -> str:
         """URL for async commection"""

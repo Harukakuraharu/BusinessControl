@@ -13,7 +13,11 @@ async def test_create_meet_manager(user_client: AsyncClient):
     data = {
         "title": "Hello",
         "date": "2025-01-05",
+<<<<<<< HEAD
         "time": "10:00"
+=======
+        "time": "10:00",
+>>>>>>> 6230ac8 (Added api tests)
     }
     response = await user_client.post("/meetings/", json=data)
     assert response.status_code == status.HTTP_200_OK

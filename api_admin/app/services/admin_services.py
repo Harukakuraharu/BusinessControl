@@ -267,8 +267,12 @@ class RedisServise:
             "role": data.role.value,
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         redis_client.set(code, json.dumps(set_data), ex=1000)
 =======
         redis_client.set(code, json.dumps(set_data))
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+        redis_client.set(code, json.dumps(set_data), ex=1000)
+>>>>>>> 6230ac8 (Added api tests)
         return code

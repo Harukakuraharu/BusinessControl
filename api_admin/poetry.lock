@@ -112,6 +112,9 @@ test = ["distro (>=1.9.0,<1.10.0)", "flake8 (>=6.1,<7.0)", "flake8-pyi (>=24.1.0
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "bcrypt"
 version = "4.2.1"
 description = "Modern password hashing for your software and your servers"
@@ -151,8 +154,11 @@ tests = ["pytest (>=3.2.1,!=3.3.0)"]
 typecheck = ["mypy"]
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "black"
 version = "24.10.0"
 description = "The uncompromising code formatter."
@@ -292,6 +298,9 @@ idna = ">=2.0.0"
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "faker"
 version = "35.0.0"
 description = "Faker is a Python package that generates fake data for you."
@@ -308,8 +317,11 @@ python-dateutil = ">=2.4"
 typing-extensions = "*"
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "fastapi"
 version = "0.115.7"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
@@ -1089,6 +1101,9 @@ dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "python-dateutil"
 version = "2.9.0.post0"
 description = "Extensions to the standard Python datetime module"
@@ -1104,8 +1119,11 @@ files = [
 six = ">=1.5"
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "python-dotenv"
 version = "1.0.1"
 description = "Read key-value pairs from a .env file and set them as environment variables"
@@ -1150,6 +1168,9 @@ ocsp = ["cryptography (>=36.0.1)", "pyopenssl (==23.2.1)", "requests (>=2.31.0)"
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "six"
 version = "1.17.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -1162,8 +1183,11 @@ files = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "sniffio"
 version = "1.3.1"
 description = "Sniff out which async library your code is running under"
@@ -1376,7 +1400,11 @@ email = ["email-validator"]
 lock-version = "2.1"
 python-versions = "^3.12"
 <<<<<<< HEAD
+<<<<<<< HEAD
 content-hash = "f2a5bde1251e74b5a7d4d859350a2ed369c071a21a59d0b4c761c709de5690b6"
 =======
 content-hash = "0e22b2ef559bd1392bf87525790a82298cb80377ead40101386a049e99796827"
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+content-hash = "e41d3ea44ef998b657e7104c55f4415330b3f8ba34820fad8347cbc0038a1fb5"
+>>>>>>> 6230ac8 (Added api tests)

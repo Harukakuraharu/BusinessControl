@@ -4,19 +4,26 @@ from fastapi import FastAPI
 from sqladmin import Admin
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 from api.api_admin import (
 =======
 from app.api.api_admin import (
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+from api.api_admin import (
+>>>>>>> 6230ac8 (Added api tests)
     admin_routers,
     company_routers,
     organization_routers,
     super_admin_routers,
 )
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 from core.settings import config
 
 

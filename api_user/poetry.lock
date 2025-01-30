@@ -220,6 +220,9 @@ uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "certifi"
 version = "2024.12.14"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -232,10 +235,13 @@ files = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> a0a9e11 (Fix folders)
 =======
 >>>>>>> 09b7086 (Add user routers)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "cffi"
 version = "1.17.1"
 description = "Foreign Function Interface for Python calling C code."
@@ -464,6 +470,9 @@ idna = ">=2.0.0"
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "faker"
 version = "35.0.0"
 description = "Faker is a Python package that generates fake data for you."
@@ -480,10 +489,13 @@ python-dateutil = ">=2.4"
 typing-extensions = "*"
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> a0a9e11 (Fix folders)
 =======
 >>>>>>> 09b7086 (Add user routers)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "fastapi"
 version = "0.115.7"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
@@ -631,6 +643,9 @@ files = [
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "httpcore"
 version = "1.0.7"
 description = "A minimal low-level HTTP client."
@@ -678,8 +693,11 @@ socks = ["socksio (==1.*)"]
 zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> 09b7086 (Add user routers)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "idna"
 version = "3.10"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -1295,6 +1313,9 @@ dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "python-dateutil"
 version = "2.9.0.post0"
 description = "Extensions to the standard Python datetime module"
@@ -1310,8 +1331,11 @@ files = [
 six = ">=1.5"
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> 09b7086 (Add user routers)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "python-dotenv"
 version = "1.0.1"
 description = "Read key-value pairs from a .env file and set them as environment variables"
@@ -1348,6 +1372,9 @@ ocsp = ["cryptography (>=36.0.1)", "pyopenssl (==23.2.1)", "requests (>=2.31.0)"
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "six"
 version = "1.17.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -1360,10 +1387,13 @@ files = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> 09b7086 (Add user routers)
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 name = "sniffio"
 version = "1.3.1"
 description = "Sniff out which async library your code is running under"
@@ -1538,6 +1568,7 @@ python-versions = "^3.12"
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 content-hash = "4ff9f7b9225d05cced442c1dfa8c192513e686ba69a2f793355cd5c1307e338d"
 =======
 content-hash = "4384e148b38d5f3c332fcf2d2eca5c494034462e0a3b12b2ee142aed70c12acb"
@@ -1548,3 +1579,6 @@ content-hash = "1915da6cc54ffc48042a839aa114095b2252e614f11afa35356f9f524fb3d360
 =======
 content-hash = "06fcf3c24a2dfb479221dd37660cbf0ea71a14fadac08821fad125c991686642"
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+content-hash = "2f82340e9b3ee7ee75ff530675fb9bb6cce0641cc7a3f6dc2d75b07cd4d49ed3"
+>>>>>>> 6230ac8 (Added api tests)

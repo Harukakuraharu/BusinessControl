@@ -99,10 +99,14 @@ async def delete_task(
 
 @tasks_routers.patch(
 <<<<<<< HEAD
+<<<<<<< HEAD
     "/task_status/{task_id}/", response_model=schemas.TaskStatusUpdateResponse
 =======
     "/task_status/{task_id}", response_model=schemas.TaskStatusUpdateResponse
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    "/task_status/{task_id}/", response_model=schemas.TaskStatusUpdateResponse
+>>>>>>> 6230ac8 (Added api tests)
 )
 async def update_status_task(
     session: dependency.AsyncSessionDependency,
@@ -121,10 +125,14 @@ async def update_status_task(
 
 @tasks_routers.post(
 <<<<<<< HEAD
+<<<<<<< HEAD
     "/grade/{task_id}/", response_model=schemas.CreateGradeResponse
 =======
     "/grade/{task_id}", response_model=schemas.CreateGradeResponse
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    "/grade/{task_id}/", response_model=schemas.CreateGradeResponse
+>>>>>>> 6230ac8 (Added api tests)
 )
 async def create_grade_task(
     session: dependency.AsyncSessionDependency,
@@ -146,11 +154,15 @@ async def get_grade_task(
     params: schemas.GetGrade = Depends(),
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Get grade for task"""
     return await TaskServices(session).get_param_grade(user.id, params)
 =======
     return await TaskServices(session).get_param_grade(user, params)
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    return await TaskServices(session).get_param_grade(user.id, params)
+>>>>>>> 6230ac8 (Added api tests)
 
 
 @tasks_routers.get("/grade/company/")

@@ -18,6 +18,7 @@ asyncpg = "^0.30.0"
 bcrypt = "^4.2.1"
 httpx = "^0.28.1"
 faker = "^35.0.0"
+<<<<<<< HEAD
 gunicorn = "^23.0.0"
 =======
 pydantic = {extras = ["settings"], version = "^2.10.6"}
@@ -31,6 +32,8 @@ pyjwt = "^2.10.1"
 redis = "^5.2.1"
 asyncpg = "^0.30.0"
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+>>>>>>> 6230ac8 (Added api tests)
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.4"

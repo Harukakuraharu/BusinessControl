@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import datetime
+=======
+>>>>>>> 6230ac8 (Added api tests)
 from typing import Any, Sequence
 
 import sqlalchemy as sa
@@ -7,7 +10,11 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 import database.models as models
 from tests_config import utils
+<<<<<<< HEAD
 
+=======
+import datetime
+>>>>>>> 6230ac8 (Added api tests)
 
 faker = Faker()
 
@@ -26,7 +33,11 @@ class MainFactory:
 
     async def insert_to_db(self) -> None:
         """
+<<<<<<< HEAD
         Insert data on databases
+=======
+        Запись данных в БД
+>>>>>>> 6230ac8 (Added api tests)
         """
         stmt = sa.insert(self.model).values(self.data)  # type:ignore[arg-type]
         await self.session.execute(stmt)
@@ -145,7 +156,11 @@ class TaskFactory(MainFactory):
                 "descriptions": kwargs.get("descriptions", faker.name()),
                 "status": kwargs.get("status", models.TaskStatus.NEW),
                 "comments": kwargs.get("comments", faker.name()),
+<<<<<<< HEAD
                 "date": kwargs.get("time", datetime.datetime.now()),
+=======
+                "time": kwargs.get("time", datetime.datetime.now()),
+>>>>>>> 6230ac8 (Added api tests)
             }
             for _ in range(count)
         )
