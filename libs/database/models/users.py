@@ -18,3 +18,12 @@ class User(Base):
     organization: Mapped["Organization"] = relationship(
         back_populates="user", lazy="joined"
     )
+    tasks_user: Mapped[list["TaskUser"]] = relationship(
+        back_populates="users", lazy="selectin"
+    )
+    meeting_user: Mapped[list["MeetingUser"]] = relationship(
+        back_populates="users", lazy="selectin"
+    )
+    motivations: Mapped[list["Motivation"]] = relationship(
+        back_populates="users", lazy="joined"
+    )   
