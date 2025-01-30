@@ -2,6 +2,7 @@ from datetime import timedelta
 from typing import AsyncIterator, Type
 
 import pytest
+from database import models
 from database.models import Base
 from fastapi import FastAPI
 from httpx import ASGITransport, AsyncClient
@@ -119,12 +120,95 @@ async def factory_fixture(async_session: AsyncSession):
 async def user_client_fixture(
     factory, test_app: FastAPI
 ) -> AsyncIterator[AsyncClient]:
+    password = "string123"
     user = await factory(
         fc.UserFactory,
-        password="string123",
+        password=utils.hash_password(password),
         first_name="Test_user",
     )
-    # user = users[0]
+    access_token_expires = timedelta(
+        minutes=config.ACCESS_TOKEN_EXPIRE_MINUTES
+    )
+    token = utils.create_access_token(
+        data={"sub": user.email},
+        expires_delta=access_token_expires,
+    )
+    async with AsyncClient(
+        transport=ASGITransport(app=test_app),
+        base_url="http://test",
+        headers={"Authorization": f"Bearer {token}"},
+    ) as async_client:
+        yield async_client
+
+
+@pytest.fixture(name="admin_client")
+async def admin_client_fixture(
+    factory, test_app: FastAPI
+) -> AsyncIterator[AsyncClient]:
+    password = "string123"
+    user = await factory(
+        fc.UserFactory,
+        password=utils.hash_password(password),
+        first_name="Test_user",
+        is_admin=True,
+    )
+    access_token_expires = timedelta(
+        minutes=config.ACCESS_TOKEN_EXPIRE_MINUTES
+    )
+    token = utils.create_access_token(
+        data={"sub": user.email},
+        expires_delta=access_token_expires,
+    )
+    async with AsyncClient(
+        transport=ASGITransport(app=test_app),
+        base_url="http://test",
+        headers={"Authorization": f"Bearer {token}"},
+    ) as async_client:
+        yield async_client
+
+
+@pytest.fixture(name="admin_company_client")
+async def admin_company_client_fixture(
+    factory, test_app: FastAPI
+) -> AsyncIterator[AsyncClient]:
+    await factory(fc.CompanyFactory)
+    password = "string123"
+    user = await factory(
+        fc.UserFactory,
+        password=utils.hash_password(password),
+        first_name="Test_admin",
+        is_admin=True,
+    )
+    await factory(fc.OrganizationFactory, user_id=user.id)
+    access_token_expires = timedelta(
+        minutes=config.ACCESS_TOKEN_EXPIRE_MINUTES
+    )
+    token = utils.create_access_token(
+        data={"sub": user.email},
+        expires_delta=access_token_expires,
+    )
+    async with AsyncClient(
+        transport=ASGITransport(app=test_app),
+        base_url="http://test",
+        headers={"Authorization": f"Bearer {token}"},
+    ) as async_client:
+        yield async_client
+
+
+@pytest.fixture(name="user_company_client")
+async def user_company_client_fixture(
+    factory, test_app: FastAPI
+) -> AsyncIterator[AsyncClient]:
+    await factory(fc.CompanyFactory)
+    password = "string123"
+    user = await factory(
+        fc.UserFactory,
+        password=utils.hash_password(password),
+        first_name="Test_user",
+    )
+    await factory(
+        fc.OrganizationFactory, user_id=user.id, role=models.UserRole.EMPLOYEE
+    )
     access_token_expires = timedelta(
         minutes=config.ACCESS_TOKEN_EXPIRE_MINUTES
     )

@@ -3,13 +3,12 @@ from admin_panel import admin_panel as sqladmin
 from fastapi import FastAPI
 from sqladmin import Admin
 
-from app.api.api_admin import (
+from api.api_admin import (
     admin_routers,
     company_routers,
     organization_routers,
     super_admin_routers,
 )
-
 from core.settings import config
 
 

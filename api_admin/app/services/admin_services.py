@@ -154,5 +154,5 @@ class RedisServise:
             "company_id": admin.organization.company_id,
             "role": data.role.value,
         }
-        redis_client.set(code, json.dumps(set_data))
+        redis_client.set(code, json.dumps(set_data), ex=1000)
         return code

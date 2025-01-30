@@ -68,7 +68,7 @@ async def delete_task(
 
 
 @tasks_routers.patch(
-    "/task_status/{task_id}", response_model=schemas.TaskStatusUpdateResponse
+    "/task_status/{task_id}/", response_model=schemas.TaskStatusUpdateResponse
 )
 async def update_status_task(
     session: dependency.AsyncSessionDependency,
@@ -82,7 +82,7 @@ async def update_status_task(
 
 
 @tasks_routers.post(
-    "/grade/{task_id}", response_model=schemas.CreateGradeResponse
+    "/grade/{task_id}/", response_model=schemas.CreateGradeResponse
 )
 async def create_grade_task(
     session: dependency.AsyncSessionDependency,
@@ -99,7 +99,7 @@ async def get_grade_task(
     user: dependency.GetCurrentUserDependency,
     params: schemas.GetGrade = Depends(),
 ):
-    return await TaskServices(session).get_param_grade(user, params)
+    return await TaskServices(session).get_param_grade(user.id, params)
 
 
 @tasks_routers.get("/grade/company/")

@@ -7,6 +7,7 @@ from fastapi import HTTPException, status
 from redis_cli.redis_client import redis_client
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
+from tests_config import utils
 
 from core import security
 from core.settings import config
@@ -21,7 +22,7 @@ class UserService:
         self.organization_crud = JoinOrganizationCrud(self.session)
 
     async def create_user(self, data):
-        data.password = security.hash_password(data.password)
+        data.password = utils.hash_password(data.password)
         try:
             user = await self.crud.create_or_update(
                 data.model_dump(), "create"
@@ -42,7 +43,7 @@ class UserService:
         access_token_expires = timedelta(
             minutes=config.ACCESS_TOKEN_EXPIRE_MINUTES
         )
-        access_token = security.create_access_token(
+        access_token = utils.create_access_token(
             data={"sub": user.email}, expires_delta=access_token_expires
         )
         return schemas.Token(access_token=access_token)
@@ -50,7 +51,7 @@ class UserService:
     async def update_user(self, data, current_user):
         update_data = data.model_dump(exclude_unset=True)
         update_data["id"] = current_user.id
-        user = self.crud.create_or_update(update_data, "update")
+        user = await self.crud.create_or_update(update_data, "update")
         await self.session.commit()
         await self.session.refresh(user)
         return user
