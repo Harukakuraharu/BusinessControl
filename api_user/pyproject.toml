@@ -70,6 +70,7 @@ asyncpg = "^0.30.0"
 redis = "^5.2.1"
 httpx = "^0.28.1"
 faker = "^35.0.0"
+gunicorn = "^23.0.0"
 
 [tool.poetry.group.dev.dependencies]
 pylint = "^3.3.4"

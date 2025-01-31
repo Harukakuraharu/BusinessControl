@@ -21,12 +21,15 @@ httpx = "^0.28.1"
 faker = "^35.0.0"
 bcrypt = "^4.2.1"
 gunicorn = "^23.0.0"
+<<<<<<< HEAD
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
 =======
 faker = "^35.0.0"
 bcrypt = "^4.2.1"
 >>>>>>> 6230ac8 (Added api tests)
+=======
+>>>>>>> d142e47 (Added dockerfiles)
 
 
 [tool.poetry.group.dev.dependencies]

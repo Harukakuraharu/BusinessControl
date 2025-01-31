@@ -473,6 +473,9 @@ test = ["objgraph", "psutil"]
 
 [[package]]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d142e47 (Added dockerfiles)
 name = "gunicorn"
 version = "23.0.0"
 description = "WSGI HTTP Server for UNIX"
@@ -495,8 +498,11 @@ testing = ["coverage", "eventlet", "gevent", "pytest", "pytest-cov"]
 tornado = ["tornado (>=0.2)"]
 
 [[package]]
+<<<<<<< HEAD
 =======
 >>>>>>> d0ff108 (Added new servise)
+=======
+>>>>>>> d142e47 (Added dockerfiles)
 name = "h11"
 version = "0.14.0"
 description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
@@ -788,10 +794,14 @@ description = "Core utilities for Python packages"
 optional = false
 python-versions = ">=3.8"
 <<<<<<< HEAD
+<<<<<<< HEAD
 groups = ["main", "dev"]
 =======
 groups = ["dev"]
 >>>>>>> d0ff108 (Added new servise)
+=======
+groups = ["main", "dev"]
+>>>>>>> d142e47 (Added dockerfiles)
 files = [
     {file = "packaging-24.2-py3-none-any.whl", hash = "sha256:09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759"},
     {file = "packaging-24.2.tar.gz", hash = "sha256:c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"},
@@ -1409,6 +1419,7 @@ python-versions = "^3.12"
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 content-hash = "fe15db7c1425da8db1375ac5deb64c07b4c1ba6cdc3a76d17faccf9be256af09"
 =======
 content-hash = "dcce013938099d475cde0b337b26e899f76b8929ab7ea5040be223555ebfa816"
@@ -1419,3 +1430,6 @@ content-hash = "177530b20cc35d4745307328e8003fbbb0ebff56751ee91491b416ab7f025c1d
 =======
 content-hash = "2fd6e8422f7b5a50cd203ac827db05e56ff5cc35e76263d34708cdff3e35732f"
 >>>>>>> 6230ac8 (Added api tests)
+=======
+content-hash = "fe15db7c1425da8db1375ac5deb64c07b4c1ba6cdc3a76d17faccf9be256af09"
+>>>>>>> d142e47 (Added dockerfiles)
