@@ -1,4 +1,4 @@
-from typing import Annotated
+from typing import Annotated, AsyncIterator
 
 import jwt
 import sqlalchemy as sa
@@ -9,11 +9,13 @@ from jwt.exceptions import InvalidTokenError
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 
 from core.settings import config
-from schemas import schemas
 
 
-async def get_session():
-    async with AsyncSession(create_async_engine(config.async_dsn)) as session:
+async def get_session() -> AsyncIterator[AsyncSession]:
+    """Get session for execution of the request"""
+    async with AsyncSession(
+        create_async_engine(config.async_dsn)
+    ) as session:  # type: ignore[arg-type]
         yield session
 
 
@@ -25,7 +27,8 @@ AsyncSessionDependency = Annotated[
 async def get_current_user(
     token: Annotated[HTTPAuthorizationCredentials, Depends(HTTPBearer())],
     session: AsyncSessionDependency,
-) -> schemas.UserResponse:
+) -> models.User:
+    """Get current user who send request"""
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Could not validate credentials",
@@ -47,12 +50,13 @@ async def get_current_user(
     return user
 
 
-GetCurrentUserDependency = Annotated[
-    schemas.UserResponse, Depends(get_current_user)
-]
+GetCurrentUserDependency = Annotated[models.User, Depends(get_current_user)]
 
 
-async def check_permission(current_user: GetCurrentUserDependency):
+async def check_permission(
+    current_user: GetCurrentUserDependency,
+) -> models.User:
+    """Check permission current user who send request for create company"""
     if current_user.is_admin is not True:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
@@ -61,17 +65,18 @@ async def check_permission(current_user: GetCurrentUserDependency):
     return current_user
 
 
-AdminPermissionDependency = Annotated[
-    schemas.UserResponse, Depends(check_permission)
-]
+AdminPermissionDependency = Annotated[models.User, Depends(check_permission)]
 
 
-async def check_permission_company(current_user: AdminPermissionDependency):
+async def check_permission_company(
+    current_user: AdminPermissionDependency,
+) -> models.User:
+    """Check get company for current user who send request"""
     if current_user.organization is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Company not found")
     return current_user
 
 
 CompanyPermissionDependency = Annotated[
-    schemas.UserResponse, Depends(check_permission_company)
+    models.User, Depends(check_permission_company)
 ]

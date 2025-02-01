@@ -28,7 +28,9 @@ class Task(Base):
     descriptions: Mapped[str]
     status: Mapped[TaskStatus]
     comments: Mapped[str] = mapped_column(nullable=True)
-    time: Mapped[datetime.date] = mapped_column(server_default=func.now())
+    time: Mapped[datetime.date] = mapped_column(
+        server_default=func.now()  # pylint: disable=E1102
+    )
     tasks_user: Mapped[list["TaskUser"]] = relationship(
         back_populates="tasks", lazy="selectin"
     )
@@ -52,7 +54,7 @@ class TaskUser(Base):
     tasks: Mapped[Task] = relationship(
         back_populates="tasks_user", lazy="joined"
     )
-    users: Mapped["User"] = relationship(
+    users: Mapped["User"] = relationship(  # type: ignore[name-defined]
         back_populates="tasks_user", lazy="joined"
     )
 
@@ -72,7 +74,7 @@ class Motivation(Base):
         ForeignKey("users.id", ondelete="CASCADE")
     )
     grade: Mapped[int]
-    users: Mapped["User"] = relationship(
+    users: Mapped["User"] = relationship(  # type: ignore[name-defined]
         back_populates="motivations", lazy="joined"
     )
     tasks: Mapped[Task] = relationship(

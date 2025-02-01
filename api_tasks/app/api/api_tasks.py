@@ -1,11 +1,9 @@
+from core import dependency
 from fastapi import Depends, status
 from fastapi.responses import JSONResponse
 from fastapi.routing import APIRouter
-from services.services_tasks import TaskServices
-
-from core import dependency
 from schemas import schemas
-
+from services.services_tasks import TaskServices
 
 tasks_routers = APIRouter(prefix="/tasks", tags=["Tasks"])
 
@@ -16,6 +14,7 @@ async def create_task(
     admin: dependency.ManagerPermissionDependency,
     data: schemas.CreateTask,
 ):
+    """Create task by company admin"""
     return await TaskServices(session).create_task(admin, data)
 
 
@@ -25,6 +24,7 @@ async def add_user_task(
     admin: dependency.ManagerPermissionDependency,
     data: schemas.AddUserTask,
 ):
+    """Add user in task"""
     return await TaskServices(session).add_user_task(data, admin.id)
 
 
@@ -33,6 +33,7 @@ async def get_all_yours_task(
     session: dependency.AsyncSessionDependency,
     admin: dependency.ManagerPermissionDependency,
 ):
+    """Get all tasks"""
     return await TaskServices(session).get_tasks(admin.id)
 
 
@@ -42,6 +43,7 @@ async def get_task(
     admin: dependency.ManagerPermissionDependency,
     task_id: int,
 ):
+    """Get task by id"""
     return await TaskServices(session).get_task(admin.id, task_id)
 
 
@@ -52,6 +54,7 @@ async def update_task(
     task_id: int,
     data: schemas.TaskUpdate,
 ):
+    """Update task"""
     return await TaskServices(session).update_task(admin.id, task_id, data)
 
 
@@ -76,6 +79,7 @@ async def update_status_task(
     user: dependency.GetCurrentUserDependency,
     task_id: int,
 ):
+    """Update task status"""
     return await TaskServices(session).update_task_status(
         task_id, data, user.id
     )
@@ -90,6 +94,7 @@ async def create_grade_task(
     task_id: int,
     data: schemas.CreareGrade,
 ):
+    """Create grade for task by tasks owner"""
     return await TaskServices(session).create_grade(task_id, data, admin.id)
 
 
@@ -99,6 +104,7 @@ async def get_grade_task(
     user: dependency.GetCurrentUserDependency,
     params: schemas.GetGrade = Depends(),
 ):
+    """Get grade for task"""
     return await TaskServices(session).get_param_grade(user.id, params)
 
 
@@ -107,4 +113,5 @@ async def get_grade_company(
     session: dependency.AsyncSessionDependency,
     user: dependency.GetCurrentUserDependency,
 ):
+    """Get grade task for all conpany"""
     return await TaskServices(session).get_company_grade(user.id)

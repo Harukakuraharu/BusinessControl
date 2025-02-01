@@ -1,17 +1,24 @@
+from database import models
 from fastapi import HTTPException, status
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from crud import crud_meetings as crud
+from schemas import schemas
 
 
 class MeetingServices:
+    """Execution of the request for meetng endpoint"""
+
     def __init__(self, session: AsyncSession):
         self.session = session
         self.crud_meeting = crud.MeetingCrud(self.session)
         self.crud_user_meeting = crud.MeetingUserCrud(self.session)
 
-    async def create_meeting(self, data, user_id: int):
+    async def create_meeting(
+        self, data: schemas.CreateMeeting, user_id: int
+    ) -> models.Meeting:
+        """Execution of the request for create meeting"""
         meeting = await self.crud_meeting.create_item(data.model_dump())
         meeting_user_data = {
             "user_id": user_id,
@@ -22,11 +29,15 @@ class MeetingServices:
         await self.session.refresh(meeting)
         return meeting
 
-    async def get_meeting(self, user_id: int):
+    async def get_meeting(self, user_id: int) -> list:
+        """Execution of the request for get meeting"""
         meetings = await self.crud_meeting.get_meetings(user_id)
         return meetings
 
-    async def update_meeting(self, user_id: int, update_data, meeting_id: int):
+    async def update_meeting(
+        self, user_id: int, update_data: schemas.UpdateMeeting, meeting_id: int
+    ) -> models.Meeting:
+        """Execution of the request for update meeting"""
         await self.crud_meeting.get_meeting(user_id, meeting_id)
         data = update_data.model_dump(exclude_unset=True)
         data["id"] = meeting_id
@@ -35,12 +46,16 @@ class MeetingServices:
         await self.session.refresh(meeting)
         return meeting
 
-    async def delete_meeting(self, user_id: int, meeting_id: int):
+    async def delete_meeting(self, user_id: int, meeting_id: int) -> None:
+        """Execution of the request for delete meeting"""
         await self.crud_meeting.get_meeting(user_id, meeting_id)
         await self.crud_meeting.delete_item(meeting_id)
         await self.session.commit()
 
-    async def add_user_meeting(self, data, user_id: int):
+    async def add_user_meeting(
+        self, data: schemas.AddUserMeeting, user_id: int
+    ) -> models.MeetingUser:
+        """Execution of the request for add user for meeting"""
         await self.crud_meeting.get_meeting(user_id, data.meeting_id)
         meeting_user_data = {
             "meeting_id": data.meeting_id,

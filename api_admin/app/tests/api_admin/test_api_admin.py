@@ -24,7 +24,7 @@ async def test_create_code(admin_company_client: AsyncClient):
 async def test_create_admin(super_admin_client: AsyncClient, factory):
     """Change user status on admin for create company and organization"""
     user = await factory(fc.UserFactory)
-    assert user[1].is_admin == False
+    assert user[1].is_admin == False  # pylint: disable=C0121
     response = await super_admin_client.patch(
         "/super_admin/create_admin/", json={"email": user[1].email}
     )

@@ -3,6 +3,7 @@ from pydantic_settings import BaseSettings
 
 
 class Config(BaseSettings):
+    """Pull env config"""
 
     POSTGRES_USER: str = "user"
     POSTGRES_PASSWORD: str = "user"

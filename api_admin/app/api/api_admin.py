@@ -24,6 +24,7 @@ async def create_code(
     admin: dependency.CompanyPermissionDependency,
     data: schemas.CreateCode,
 ):
+    """Create a verification key to add a user to a company"""
     return await admin_services.RedisServise().create_code(admin, data)
 
 
@@ -35,7 +36,7 @@ async def update_admin_status(
     current_user: dependency.GetCurrentUserDependency,
     data: schemas.AdminStatus,
 ):
-    """Create admin for company"""
+    """Create admin for company by only superadmin - owner this application"""
     return await admin_services.AdminServices(session).update_admin_status(
         current_user, data
     )
@@ -47,6 +48,7 @@ async def create_company(
     data: schemas.CompanyCreate,
     admin: dependency.AdminPermissionDependency,
 ):
+    """Create company with admin - owner new company"""
     return await admin_services.CompanyServices(session).create_company(
         data, admin
     )
@@ -57,6 +59,7 @@ async def get_yours_company(
     session: dependency.AsyncSessionDependency,
     admin: dependency.CompanyPermissionDependency,
 ):
+    """Get your company - only owner"""
     return await admin_services.CompanyServices(session).get_company(admin)
 
 
@@ -66,6 +69,7 @@ async def update_yours_company(
     admin: dependency.CompanyPermissionDependency,
     data: schemas.CompanyCreate,
 ):
+    """Update your company - only owner"""
     return await admin_services.CompanyServices(session).update_company(
         admin, data
     )
@@ -76,6 +80,7 @@ async def delete_yours_company(
     session: dependency.AsyncSessionDependency,
     admin: dependency.CompanyPermissionDependency,
 ):
+    """Delete your company - only  owner"""
     return await admin_services.CompanyServices(session).delete_company(admin)
 
 
@@ -85,6 +90,7 @@ async def add_user_yours_company(
     admin: dependency.CompanyPermissionDependency,
     data: schemas.AddUserOrganization,
 ):
+    """Add another employee in your company - only owner"""
     return await admin_services.AdminServices(session).add_user(data, admin)
 
 
@@ -94,6 +100,7 @@ async def delete_user_yours_company(
     admin: dependency.CompanyPermissionDependency,
     data: schemas.AdminStatus,
 ):
+    """Delete employee in your company - only owner"""
     return await admin_services.AdminServices(session).remove_user(data, admin)
 
 
@@ -103,6 +110,7 @@ async def add_news_yours_company(
     admin: dependency.CompanyPermissionDependency,
     data: schemas.CreateNews,
 ):
+    """Create news for your company - only owner"""
     return await admin_services.AdminServices(session).add_news(data, admin)
 
 
@@ -111,6 +119,7 @@ async def get_all_news(
     session: dependency.AsyncSessionDependency,
     admin: dependency.CompanyPermissionDependency,
 ):
+    """Get all news on your company - only owner"""
     return await admin_services.AdminServices(session).get_all_news(admin)
 
 
@@ -122,6 +131,7 @@ async def get_news(
     admin: dependency.CompanyPermissionDependency,
     news_id: int,
 ):
+    """Get some news by id on your company - only owner"""
     return await admin_services.AdminServices(session).get_news(admin, news_id)
 
 
@@ -134,6 +144,7 @@ async def update_news_yours_company(
     data: schemas.UpdateNews,
     news_id: int,
 ):
+    """Update news by id on your company - only owner"""
     return await admin_services.AdminServices(session).update_news(
         data, admin, news_id
     )
@@ -145,6 +156,7 @@ async def delete_news_yours_company(
     admin: dependency.CompanyPermissionDependency,
     news_id: int,
 ):
+    """Delete news by id on your company - only owner"""
     return await admin_services.AdminServices(session).delete_news(
         admin, news_id
     )
