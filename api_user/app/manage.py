@@ -3,14 +3,12 @@ import json
 
 import click
 import sqlalchemy as sa
+from core.settings import config
 from database import models
 from pydantic import ValidationError
-from sqlalchemy.orm import Session
-
-from core.security import hash_password
 from schemas import schemas
-
-from core.settings import config
+from sqlalchemy.orm import Session
+from tests_config.utils import hash_password
 
 
 @click.group("db")
@@ -26,7 +24,12 @@ def db():
     "-p", "--password", prompt=True, hide_input=True, help="Admin password"
 )
 def create_admin(email, first_name, last_name, password):
-    data = {"email": email, "first_name": first_name, "last_name": last_name, "password": password}
+    data = {
+        "email": email,
+        "first_name": first_name,
+        "last_name": last_name,
+        "password": password,
+    }
     try:
         schemas.UserCreate.model_validate_json(json.dumps(data))
     except ValidationError as err:

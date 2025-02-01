@@ -1,20 +1,21 @@
-from typing import Annotated
+from typing import Annotated, AsyncIterator
 
 import jwt
+from core.settings import config
+from crud.user_crud import UserCrud
 from database import models
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jwt.exceptions import InvalidTokenError
+from schemas.schemas import UserResponse
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 
-from core.settings import config
-from crud.user_crud import UserCrud
 
-from schemas.schemas import UserResponse
-
-
-async def get_session():
-    async with AsyncSession(create_async_engine(config.async_dsn)) as session:
+async def get_session() -> AsyncIterator[AsyncSession]:
+    """Get session for execution of the request"""
+    async with AsyncSession(
+        create_async_engine(config.async_dsn)
+    ) as session:  # type: ignore[arg-type]
         yield session
 
 

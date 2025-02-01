@@ -4,16 +4,22 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from crud import crud_tasks as crud
+from schemas import schemas
 
 
 class TaskServices:
+    """Execution of the request for tasks endpoint"""
+
     def __init__(self, session: AsyncSession):
         self.session = session
         self.crud_task = crud.TaskCrud(self.session)
         self.crud_task_user = crud.TaskUserCrud(self.session)
         self.crud_motivation = crud.MotivationCrud(self.session)
 
-    async def create_task(self, admin, data):
+    async def create_task(
+        self, admin: models.User, data: schemas.CreateTask
+    ) -> models.Task:
+        """Execution of the request for create task"""
         task = await self.crud_task.create_item(data.model_dump())
         task_data = {
             "user_id": admin.id,
@@ -25,7 +31,10 @@ class TaskServices:
         await self.session.refresh(task)
         return task
 
-    async def add_user_task(self, data, admin_id: int):
+    async def add_user_task(
+        self, data: schemas.AddUserTask, admin_id: int
+    ) -> models.TaskUser:
+        """Execution of the request for add task for user"""
         await self.crud_task.get_task(admin_id, data.task_id)
         task_user_data = {
             "task_id": data.task_id,
@@ -45,15 +54,20 @@ class TaskServices:
         await self.session.refresh(task_user)
         return task_user
 
-    async def get_tasks(self, admin_id: int):
+    async def get_tasks(self, admin_id: int) -> list:
+        """Execution of the request for get all tasks"""
         tasks = await self.crud_task.get_yours_tasks(admin_id)
         return tasks
 
-    async def get_task(self, admin_id: int, task_id: int):
+    async def get_task(self, admin_id: int, task_id: int) -> models.Task:
+        """Execution of the request for get task by id"""
         task = await self.crud_task.get_task(admin_id, task_id)
         return task
 
-    async def update_task(self, admin_id: int, task_id: int, update_data):
+    async def update_task(
+        self, admin_id: int, task_id: int, update_data: schemas.TaskUpdate
+    ) -> models.Task:
+        """Execution of the request for update task"""
         await self.crud_task.get_task(admin_id, task_id)
         data = update_data.model_dump(exclude_unset=True)
         data["id"] = task_id
@@ -62,23 +76,28 @@ class TaskServices:
         await self.session.refresh(task)
         return task
 
-    async def delete_task(self, admin_id: int, task_id: int):
+    async def delete_task(self, admin_id: int, task_id: int) -> None:
+        """Execution of the request for delete task"""
         await self.crud_task.get_task(admin_id, task_id)
         await self.crud_task.delete_item(task_id)
         await self.session.commit()
 
     async def update_task_status(
-        self, task_id: int, update_data, user_id: int
-    ):
+        self, task_id: int, update_data: schemas.TaskStatusUpdate, user_id: int
+    ) -> models.Task:
+        """Execution of the request for update task status or comment"""
         await self.crud_task.get_task(user_id, task_id)
         data = update_data.model_dump(exclude_unset=True)
         data["id"] = task_id
-        response = await self.crud_task.update_item(data)
+        task = await self.crud_task.update_item(data)
         await self.session.commit()
-        await self.session.refresh(response)
-        return response
+        await self.session.refresh(task)
+        return task
 
-    async def create_grade(self, task_id: int, data, user_id):
+    async def create_grade(
+        self, task_id: int, data: schemas.CreareGrade, user_id: int
+    ) -> models.Motivation:
+        """Execution of the request for create grade task"""
         await self.crud_task.get_task(user_id, task_id)
         create_data = data.model_dump()
         create_data["task_id"] = task_id
@@ -95,7 +114,10 @@ class TaskServices:
         await self.session.refresh(grade)
         return grade
 
-    async def get_param_grade(self, user_id: int, params):
+    async def get_param_grade(
+        self, user_id: int, params: schemas.GetGrade
+    ) -> list:
+        """Execution of the request for get grade task"""
         data = params.model_dump()
         date_start = data.pop("date_start")
         date_end = data.pop("date_end")
@@ -106,7 +128,8 @@ class TaskServices:
             return grade
         return sum(grade) / len(grade)
 
-    async def get_company_grade(self, user_id: int):
+    async def get_company_grade(self, user_id: int) -> list:
+        """Execution of the request for create grade task for company"""
         grade = await self.crud_motivation.get_company_grade(user_id)
         if len(grade) == 0:
             return grade

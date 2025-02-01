@@ -1,10 +1,11 @@
 from pathlib import Path
 
-from pydantic import computed_field, Field
+from pydantic import Field, computed_field
 from pydantic_settings import BaseSettings
 
 
 class Config(BaseSettings):
+    """Pull env config"""
 
     ROOT_DIR: Path = Path(__file__).parent.parent.resolve()
 
@@ -19,6 +20,7 @@ class Config(BaseSettings):
     SECRET_KEY: str = Field(default="")
     ALGORITHM: str = Field(default="")
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 100
+
     @computed_field
     def async_dsn(self) -> str:
         """URL for async commection"""

@@ -41,7 +41,7 @@ class Organization(Base):
     company: Mapped[Company] = relationship(
         back_populates="organization", lazy="joined"
     )
-    user: Mapped["User"] = relationship(
+    user: Mapped["User"] = relationship(  # type: ignore[name-defined]
         back_populates="organization", lazy="joined"
     )
 

@@ -1,4 +1,4 @@
-from typing import Annotated
+from typing import Annotated, AsyncIterator
 
 import jwt
 import sqlalchemy as sa
@@ -9,11 +9,13 @@ from jwt.exceptions import InvalidTokenError
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 
 from core.settings import config
-from schemas import schemas
 
 
-async def get_session():
-    async with AsyncSession(create_async_engine(config.async_dsn)) as session:
+async def get_session() -> AsyncIterator[AsyncSession]:
+    """Get session for execution of the request"""
+    async with AsyncSession(
+        create_async_engine(config.async_dsn)  # type: ignore[arg-type]
+    ) as session:
         yield session
 
 
@@ -25,7 +27,8 @@ AsyncSessionDependency = Annotated[
 async def get_current_user(
     token: Annotated[HTTPAuthorizationCredentials, Depends(HTTPBearer())],
     session: AsyncSessionDependency,
-) -> schemas.UserResponse:
+) -> models.User:
+    """Get current user who send request"""
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Could not validate credentials",
@@ -47,16 +50,16 @@ async def get_current_user(
     return user
 
 
-GetCurrentUserDependency = Annotated[
-    schemas.UserResponse, Depends(get_current_user)
-]
+GetCurrentUserDependency = Annotated[models.User, Depends(get_current_user)]
 
 
 class RoleChecker:
+    """Depends for check user permissions"""
+
     def __init__(self, allowed_roles: list[models.UserRole]):
         self.allowed_roles = allowed_roles
 
-    def __call__(self, user: GetCurrentUserDependency):
+    def __call__(self, user: GetCurrentUserDependency) -> models.User:
         if (
             user.organization is None
             or user.organization.role.name not in self.allowed_roles
@@ -69,7 +72,7 @@ class RoleChecker:
 
 
 ManagerPermissionDependency = Annotated[
-    schemas.UserResponse,
+    models.User,
     Depends(
         RoleChecker(
             [models.UserRole.MANAGER.name, models.UserRole.SUPER_MANAGER.name]
@@ -78,6 +81,6 @@ ManagerPermissionDependency = Annotated[
 ]
 
 EmployeerPermissionDependency = Annotated[
-    schemas.UserResponse,
+    models.User,
     Depends(RoleChecker([models.UserRole.EMPLOYEE])),
 ]

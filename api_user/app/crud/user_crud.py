@@ -2,15 +2,19 @@ import sqlalchemy as sa
 from database import models
 from fastapi import HTTPException, status
 from repository.base_crud import BaseCrudRestrict
+from schemas import schemas
 from sqlalchemy.exc import IntegrityError
 
 
 class UserCrud(BaseCrudRestrict):
+    """Execution of the request in database for user model"""
+
     def __init__(self, session):
         super().__init__(session)
         self.model = models.User
 
     async def get_user(self, email: str) -> models.User:
+        """Execution of the request get user by email"""
         stmt = sa.select(self.model).where(self.model.email == email)
         user = await self.session.scalar(stmt)
         if user is None:
@@ -21,11 +25,16 @@ class UserCrud(BaseCrudRestrict):
 
 
 class JoinOrganizationCrud(BaseCrudRestrict):
+    """Execution of the request for add user in company"""
+
     def __init__(self, session):
         super().__init__(session)
         self.model = models.Organization
 
-    async def create_user_organization(self, data):
+    async def create_user_organization(
+        self, data: schemas.JoinCompany
+    ) -> models.Organization:
+        """Execution of the request for add user in company"""
         try:
             stmt = (
                 sa.insert(models.Organization)

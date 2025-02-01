@@ -1,3 +1,4 @@
+import datetime
 from typing import Any, Sequence
 
 import sqlalchemy as sa
@@ -6,7 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 import database.models as models
 from tests_config import utils
-import datetime
+
 
 faker = Faker()
 
@@ -25,7 +26,7 @@ class MainFactory:
 
     async def insert_to_db(self) -> None:
         """
-        Запись данных в БД
+        Insert data on databases
         """
         stmt = sa.insert(self.model).values(self.data)  # type:ignore[arg-type]
         await self.session.execute(stmt)
