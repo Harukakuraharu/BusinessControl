@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 from core import dependency
 from fastapi import status
 from fastapi.responses import JSONResponse
@@ -7,14 +8,14 @@ from schemas import schemas
 from services.services_meetings import MeetingServices
 
 =======
+=======
+from core import dependency
+>>>>>>> e7f03f9 (Added docs)
 from fastapi import status
 from fastapi.responses import JSONResponse
 from fastapi.routing import APIRouter
-from services.services_meetings import MeetingServices
-
-from core import dependency
 from schemas import schemas
-
+from services.services_meetings import MeetingServices
 
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
 meetings_routers = APIRouter(prefix="/meetings", tags=["Meetings"])
@@ -27,9 +28,13 @@ async def create_meetings(
     user: dependency.GetCurrentUserDependency,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Create meeting"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Create meeting"""
+>>>>>>> e7f03f9 (Added docs)
     return await MeetingServices(session).create_meeting(data, user.id)
 
 
@@ -39,9 +44,13 @@ async def get_meetings(
     user: dependency.GetCurrentUserDependency,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Get owner meetings"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Get owner meetings"""
+>>>>>>> e7f03f9 (Added docs)
     return await MeetingServices(session).get_meeting(user.id)
 
 
@@ -55,9 +64,13 @@ async def update_meetings(
     meeting_id: int,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Update meeting"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Update meeting"""
+>>>>>>> e7f03f9 (Added docs)
     return await MeetingServices(session).update_meeting(
         user.id, data, meeting_id
     )
@@ -70,9 +83,13 @@ async def delete_meeting(
     meeting_id: int,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Delete meeting"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Delete meeting"""
+>>>>>>> e7f03f9 (Added docs)
     await MeetingServices(session).delete_meeting(user.id, meeting_id)
     return JSONResponse(
         content="Successfully deleted", status_code=status.HTTP_200_OK
@@ -88,7 +105,11 @@ async def add_user_meeting(
     data: schemas.AddUserMeeting,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Add user in meeting"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Add user in meeting"""
+>>>>>>> e7f03f9 (Added docs)
     return await MeetingServices(session).add_user_meeting(data, user.id)

@@ -29,12 +29,18 @@ class Task(Base):
     status: Mapped[TaskStatus]
     comments: Mapped[str] = mapped_column(nullable=True)
 <<<<<<< HEAD
+<<<<<<< HEAD
     date: Mapped[datetime.date] = mapped_column(
         server_default=func.now()  # pylint: disable=E1102
     )
 =======
     time: Mapped[datetime.date] = mapped_column(server_default=func.now())
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    time: Mapped[datetime.date] = mapped_column(
+        server_default=func.now()  # pylint: disable=E1102
+    )
+>>>>>>> e7f03f9 (Added docs)
     tasks_user: Mapped[list["TaskUser"]] = relationship(
         back_populates="tasks", lazy="selectin"
     )
@@ -59,10 +65,14 @@ class TaskUser(Base):
         back_populates="tasks_user", lazy="joined"
     )
 <<<<<<< HEAD
+<<<<<<< HEAD
     users: Mapped["User"] = relationship(  # type: ignore[name-defined]
 =======
     users: Mapped["User"] = relationship(
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    users: Mapped["User"] = relationship(  # type: ignore[name-defined]
+>>>>>>> e7f03f9 (Added docs)
         back_populates="tasks_user", lazy="joined"
     )
 
@@ -83,10 +93,14 @@ class Motivation(Base):
     )
     grade: Mapped[int]
 <<<<<<< HEAD
+<<<<<<< HEAD
     users: Mapped["User"] = relationship(  # type: ignore[name-defined]
 =======
     users: Mapped["User"] = relationship(
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    users: Mapped["User"] = relationship(  # type: ignore[name-defined]
+>>>>>>> e7f03f9 (Added docs)
         back_populates="motivations", lazy="joined"
     )
     tasks: Mapped[Task] = relationship(

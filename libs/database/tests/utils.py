@@ -22,11 +22,15 @@ def make_alembic_config(
 ) -> Config:
     """
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e7f03f9 (Added docs)
     Create alembic.config for tests for create test database.
 
     :param dsn: main URL for test database on postgres_fixture.
     :param script_location: name path for alembic
     :return: alembic config for test database.
+<<<<<<< HEAD
 =======
     Создается новый конфиг для алембика. По дефолту основной в конф.файл env.py
     подвязан под основую БД, которая будет использоваться в проекте.
@@ -36,6 +40,8 @@ def make_alembic_config(
     указываем папку для миграций в script_location,
     т.к. alembic сам не видит путь
 >>>>>>> a0a9e11 (Fix folders)
+=======
+>>>>>>> e7f03f9 (Added docs)
     """
     alembic_cfg = Config(f"{project_config.ROOT_DIR}/alembic.ini")
     alembic_cfg.set_main_option("is_testing", "True")
@@ -55,11 +61,15 @@ def create_database(
 ) -> None:
     """
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e7f03f9 (Added docs)
     Create database with test url.
 
     :param url: main URL for test database on postgres_fixture.
     :param template: name template for in test database.
     :param encodind: encoding for create test database
+<<<<<<< HEAD
 =======
     Создание БД с URL, сформированным в tmp_database.
     make_url формирует URL, который принимает SQLAlchemy
@@ -68,6 +78,8 @@ def create_database(
     main_url содержит урл с именем постгрес для подкючения
     На основе этого движка создается БД с тестовым именем.
 >>>>>>> a0a9e11 (Fix folders)
+=======
+>>>>>>> e7f03f9 (Added docs)
     """
     url_obj = make_url(url)
     main_url = url_obj._replace(database="postgres")
@@ -85,11 +97,16 @@ def create_database(
 def drop_database(url: str) -> None:
     """
 <<<<<<< HEAD
+<<<<<<< HEAD
     Delete test database
     :param url: main URL for test database on postgres_fixture.
 =======
     Функция для удаления тестовой БД
 >>>>>>> a0a9e11 (Fix folders)
+=======
+    Delete test database
+    :param url: main URL for test database on postgres_fixture.
+>>>>>>> e7f03f9 (Added docs)
     """
     url_obj = make_url(url)
     main_url = url_obj._replace(database="postgres")
@@ -111,6 +128,7 @@ def drop_database(url: str) -> None:
 def tmp_database(str_url: str, db_name: str = "", **kwargs) -> Iterator[str]:
     """
 <<<<<<< HEAD
+<<<<<<< HEAD
     Create URL for test database
     :param str_url: URL with localhost on fixture.
     :param db_name: name for test database.
@@ -118,6 +136,11 @@ def tmp_database(str_url: str, db_name: str = "", **kwargs) -> Iterator[str]:
     Формирование URL для тестовой БД для миграций,
     на вход передается URL для подключения от фикстур
 >>>>>>> a0a9e11 (Fix folders)
+=======
+    Create URL for test database
+    :param str_url: URL with localhost on fixture.
+    :param db_name: name for test database.
+>>>>>>> e7f03f9 (Added docs)
     """
     tmp_db_url = urlsplit(str_url)
     str_url = urlunsplit(tmp_db_url._replace(path=f"/{db_name}"))

@@ -42,10 +42,14 @@ class Organization(Base):
         back_populates="organization", lazy="joined"
     )
 <<<<<<< HEAD
+<<<<<<< HEAD
     user: Mapped["User"] = relationship(  # type: ignore[name-defined]
 =======
     user: Mapped["User"] = relationship(
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+    user: Mapped["User"] = relationship(  # type: ignore[name-defined]
+>>>>>>> e7f03f9 (Added docs)
         back_populates="organization", lazy="joined"
     )
 

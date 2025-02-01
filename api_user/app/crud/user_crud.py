@@ -11,6 +11,7 @@ from sqlalchemy.exc import IntegrityError
 class UserCrud(BaseCrudRestrict):
     """Execution of the request in database for user model"""
 
+<<<<<<< HEAD
 =======
 =======
 from fastapi import HTTPException, status
@@ -21,15 +22,21 @@ from sqlalchemy.exc import IntegrityError
 
 class UserCrud(BaseCrudRestrict):
 >>>>>>> 09b7086 (Add user routers)
+=======
+>>>>>>> e7f03f9 (Added docs)
     def __init__(self, session):
         super().__init__(session)
         self.model = models.User
 
     async def get_user(self, email: str) -> models.User:
 <<<<<<< HEAD
+<<<<<<< HEAD
         """Execution of the request get user by email"""
 =======
 >>>>>>> 09b7086 (Add user routers)
+=======
+        """Execution of the request get user by email"""
+>>>>>>> e7f03f9 (Added docs)
         stmt = sa.select(self.model).where(self.model.email == email)
         user = await self.session.scalar(stmt)
         if user is None:
@@ -44,23 +51,32 @@ class UserCrud(BaseCrudRestrict):
 class JoinOrganizationCrud(BaseCrudRestrict):
     """Execution of the request for add user in company"""
 
+<<<<<<< HEAD
 =======
 
 
 class JoinOrganizationCrud(BaseCrudRestrict):
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+>>>>>>> e7f03f9 (Added docs)
     def __init__(self, session):
         super().__init__(session)
         self.model = models.Organization
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e7f03f9 (Added docs)
     async def create_user_organization(
         self, data: schemas.JoinCompany
     ) -> models.Organization:
         """Execution of the request for add user in company"""
+<<<<<<< HEAD
 =======
     async def create_user_organization(self, data):
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+>>>>>>> e7f03f9 (Added docs)
         try:
             stmt = (
                 sa.insert(models.Organization)

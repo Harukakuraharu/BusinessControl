@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import datetime
 =======
 >>>>>>> 6230ac8 (Added api tests)
+=======
+import datetime
+>>>>>>> e7f03f9 (Added docs)
 from typing import Any, Sequence
 
 import sqlalchemy as sa
@@ -11,10 +15,14 @@ from sqlalchemy.ext.asyncio import AsyncSession
 import database.models as models
 from tests_config import utils
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 import datetime
 >>>>>>> 6230ac8 (Added api tests)
+=======
+
+>>>>>>> e7f03f9 (Added docs)
 
 faker = Faker()
 
@@ -34,10 +42,14 @@ class MainFactory:
     async def insert_to_db(self) -> None:
         """
 <<<<<<< HEAD
+<<<<<<< HEAD
         Insert data on databases
 =======
         Запись данных в БД
 >>>>>>> 6230ac8 (Added api tests)
+=======
+        Insert data on databases
+>>>>>>> e7f03f9 (Added docs)
         """
         stmt = sa.insert(self.model).values(self.data)  # type:ignore[arg-type]
         await self.session.execute(stmt)

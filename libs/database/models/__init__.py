@@ -3,6 +3,7 @@ from typing import Type, TypeVar
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 from database.models.base import Base
 from database.models.companies import Company, News, Organization, UserRole
 from database.models.meetings import Meeting, MeetingUser
@@ -33,6 +34,20 @@ from database.models.companies import Company, Organization, UserRole, News
 from database.models.tasks import Task, TaskStatus, TaskUser, UserTaskRole, Motivation
 from database.models.meetings import Meeting, MeetingUser
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+from database.models.base import Base
+from database.models.companies import Company, News, Organization, UserRole
+from database.models.meetings import Meeting, MeetingUser
+from database.models.tasks import (
+    Motivation,
+    Task,
+    TaskStatus,
+    TaskUser,
+    UserTaskRole,
+)
+from database.models.users import User
+
+>>>>>>> e7f03f9 (Added docs)
 
 MODEL = TypeVar("MODEL", bound=Base)
 

@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 from typing import Annotated, AsyncIterator
 =======
 from typing import Annotated
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+from typing import Annotated, AsyncIterator
+>>>>>>> e7f03f9 (Added docs)
 
 import jwt
 import sqlalchemy as sa
@@ -13,6 +17,7 @@ from jwt.exceptions import InvalidTokenError
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 
 from core.settings import config
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 
@@ -28,6 +33,15 @@ from schemas import schemas
 async def get_session():
     async with AsyncSession(create_async_engine(config.async_dsn)) as session:
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+
+
+async def get_session() -> AsyncIterator[AsyncSession]:
+    """Get session for execution of the request"""
+    async with AsyncSession(
+        create_async_engine(config.async_dsn)  # type: ignore[arg-type]
+    ) as session:
+>>>>>>> e7f03f9 (Added docs)
         yield session
 
 
@@ -40,11 +54,16 @@ async def get_current_user(
     token: Annotated[HTTPAuthorizationCredentials, Depends(HTTPBearer())],
     session: AsyncSessionDependency,
 <<<<<<< HEAD
+<<<<<<< HEAD
 ) -> models.User:
     """Get current user who send request"""
 =======
 ) -> schemas.UserResponse:
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+) -> models.User:
+    """Get current user who send request"""
+>>>>>>> e7f03f9 (Added docs)
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Could not validate credentials",
@@ -67,6 +86,7 @@ async def get_current_user(
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 GetCurrentUserDependency = Annotated[models.User, Depends(get_current_user)]
 
 
@@ -81,14 +101,23 @@ class RoleChecker:
 GetCurrentUserDependency = Annotated[
     schemas.UserResponse, Depends(get_current_user)
 ]
+=======
+GetCurrentUserDependency = Annotated[models.User, Depends(get_current_user)]
+>>>>>>> e7f03f9 (Added docs)
 
 
 class RoleChecker:
+    """Depends for check user permissions"""
+
     def __init__(self, allowed_roles: list[models.UserRole]):
         self.allowed_roles = allowed_roles
 
+<<<<<<< HEAD
     def __call__(self, user: GetCurrentUserDependency):
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    def __call__(self, user: GetCurrentUserDependency) -> models.User:
+>>>>>>> e7f03f9 (Added docs)
         if (
             user.organization is None
             or user.organization.role.name not in self.allowed_roles
@@ -102,10 +131,14 @@ class RoleChecker:
 
 ManagerPermissionDependency = Annotated[
 <<<<<<< HEAD
+<<<<<<< HEAD
     models.User,
 =======
     schemas.UserResponse,
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    models.User,
+>>>>>>> e7f03f9 (Added docs)
     Depends(
         RoleChecker(
             [models.UserRole.MANAGER.name, models.UserRole.SUPER_MANAGER.name]
@@ -115,9 +148,13 @@ ManagerPermissionDependency = Annotated[
 
 EmployeerPermissionDependency = Annotated[
 <<<<<<< HEAD
+<<<<<<< HEAD
     models.User,
 =======
     schemas.UserResponse,
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    models.User,
+>>>>>>> e7f03f9 (Added docs)
     Depends(RoleChecker([models.UserRole.EMPLOYEE])),
 ]

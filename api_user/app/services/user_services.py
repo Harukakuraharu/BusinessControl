@@ -7,6 +7,7 @@ import sqlalchemy as sa
 from core import security
 from core.settings import config
 from crud.user_crud import JoinOrganizationCrud, UserCrud
+<<<<<<< HEAD
 from database import models
 from fastapi import HTTPException, status
 from redis_cli.redis_client import redis_client
@@ -36,26 +37,27 @@ import json
 from datetime import timedelta
 
 import sqlalchemy as sa
+=======
+>>>>>>> e7f03f9 (Added docs)
 from database import models
 from fastapi import HTTPException, status
 from redis_cli.redis_client import redis_client
+from schemas import schemas
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 from tests_config import utils
 
-from core import security
-from core.settings import config
-from crud.user_crud import JoinOrganizationCrud, UserCrud
-from schemas import schemas
-
 
 class UserService:
+    """Execution of the request for user endpoint"""
+
     def __init__(self, session: AsyncSession):
         self.session = session
         self.crud = UserCrud(self.session)
         self.organization_crud = JoinOrganizationCrud(self.session)
 
-    async def create_user(self, data):
+    async def create_user(self, data: schemas.UserCreate) -> models.User:
+        """Execution of the request for create user"""
         data.password = utils.hash_password(data.password)
         try:
 <<<<<<< HEAD
@@ -81,6 +83,7 @@ class UserService:
 
     async def login(self, data: schemas.UserLogin) -> schemas.Token:
         """Execution of the request for login user"""
+<<<<<<< HEAD
 =======
 =======
         return user
@@ -88,6 +91,8 @@ class UserService:
 
     async def login(self, data):
 >>>>>>> 09b7086 (Add user routers)
+=======
+>>>>>>> e7f03f9 (Added docs)
         user = await security.auth(self.session, data.email, data.password)
         access_token_expires = timedelta(
             minutes=config.ACCESS_TOKEN_EXPIRE_MINUTES
@@ -103,6 +108,7 @@ class UserService:
         self, data: schemas.UserUpdate, current_user: models.User
     ) -> models.User:
         """Execution of the request for update user"""
+<<<<<<< HEAD
         update_data = data.model_dump(exclude_unset=True)
         update_data["id"] = current_user.id
         user = await self.crud.create_or_update(update_data, "update")
@@ -116,6 +122,8 @@ class UserService:
         return schemas.Token(access_token=access_token)
 
     async def update_user(self, data, current_user):
+=======
+>>>>>>> e7f03f9 (Added docs)
         update_data = data.model_dump(exclude_unset=True)
         update_data["id"] = current_user.id
 <<<<<<< HEAD
@@ -134,6 +142,7 @@ class UserService:
         await self.session.refresh(user)
         return user
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     async def delete_user(self, current_user: models.User) -> None:
         """Execution of the request for delete user"""
@@ -166,13 +175,20 @@ class UserService:
         return result
 =======
     async def delete_user(self, current_user):
+=======
+    async def delete_user(self, current_user: models.User) -> None:
+        """Execution of the request for delete user"""
+>>>>>>> e7f03f9 (Added docs)
         await self.crud.delete_item(current_user.id)
         await self.session.commit()
 <<<<<<< HEAD
 >>>>>>> 09b7086 (Add user routers)
 =======
 
-    async def join_company(self, current_user, user_data):
+    async def join_company(
+        self, current_user: models.User, user_data: schemas.JoinCompany
+    ):
+        """Execution of the request for add user on company"""
         code = redis_client.get(user_data.code)
         if code is None:
             raise HTTPException(

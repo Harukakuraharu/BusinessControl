@@ -25,9 +25,13 @@ async def create_code(
     data: schemas.CreateCode,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Create a verification key to add a user to a company"""
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+    """Create a verification key to add a user to a company"""
+>>>>>>> e7f03f9 (Added docs)
     return await admin_services.RedisServise().create_code(admin, data)
 
 
@@ -40,10 +44,14 @@ async def update_admin_status(
     data: schemas.AdminStatus,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Create admin for company by only superadmin - owner this application"""
 =======
     """Create admin for company"""
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+    """Create admin for company by only superadmin - owner this application"""
+>>>>>>> e7f03f9 (Added docs)
     return await admin_services.AdminServices(session).update_admin_status(
         current_user, data
     )
@@ -56,9 +64,13 @@ async def create_company(
     admin: dependency.AdminPermissionDependency,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Create company with admin - owner new company"""
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+    """Create company with admin - owner new company"""
+>>>>>>> e7f03f9 (Added docs)
     return await admin_services.CompanyServices(session).create_company(
         data, admin
     )
@@ -70,9 +82,13 @@ async def get_yours_company(
     admin: dependency.CompanyPermissionDependency,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Get your company - only owner"""
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+    """Get your company - only owner"""
+>>>>>>> e7f03f9 (Added docs)
     return await admin_services.CompanyServices(session).get_company(admin)
 
 
@@ -83,9 +99,13 @@ async def update_yours_company(
     data: schemas.CompanyCreate,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Update your company - only owner"""
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+    """Update your company - only owner"""
+>>>>>>> e7f03f9 (Added docs)
     return await admin_services.CompanyServices(session).update_company(
         admin, data
     )
@@ -97,9 +117,13 @@ async def delete_yours_company(
     admin: dependency.CompanyPermissionDependency,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Delete your company - only  owner"""
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+    """Delete your company - only  owner"""
+>>>>>>> e7f03f9 (Added docs)
     return await admin_services.CompanyServices(session).delete_company(admin)
 
 
@@ -110,9 +134,13 @@ async def add_user_yours_company(
     data: schemas.AddUserOrganization,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Add another employee in your company - only owner"""
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+    """Add another employee in your company - only owner"""
+>>>>>>> e7f03f9 (Added docs)
     return await admin_services.AdminServices(session).add_user(data, admin)
 
 
@@ -123,9 +151,13 @@ async def delete_user_yours_company(
     data: schemas.AdminStatus,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Delete employee in your company - only owner"""
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+    """Delete employee in your company - only owner"""
+>>>>>>> e7f03f9 (Added docs)
     return await admin_services.AdminServices(session).remove_user(data, admin)
 
 
@@ -136,9 +168,13 @@ async def add_news_yours_company(
     data: schemas.CreateNews,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Create news for your company - only owner"""
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+    """Create news for your company - only owner"""
+>>>>>>> e7f03f9 (Added docs)
     return await admin_services.AdminServices(session).add_news(data, admin)
 
 
@@ -148,9 +184,13 @@ async def get_all_news(
     admin: dependency.CompanyPermissionDependency,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Get all news on your company - only owner"""
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+    """Get all news on your company - only owner"""
+>>>>>>> e7f03f9 (Added docs)
     return await admin_services.AdminServices(session).get_all_news(admin)
 
 
@@ -163,9 +203,13 @@ async def get_news(
     news_id: int,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Get some news by id on your company - only owner"""
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+    """Get some news by id on your company - only owner"""
+>>>>>>> e7f03f9 (Added docs)
     return await admin_services.AdminServices(session).get_news(admin, news_id)
 
 
@@ -179,9 +223,13 @@ async def update_news_yours_company(
     news_id: int,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Update news by id on your company - only owner"""
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+    """Update news by id on your company - only owner"""
+>>>>>>> e7f03f9 (Added docs)
     return await admin_services.AdminServices(session).update_news(
         data, admin, news_id
     )
@@ -194,9 +242,13 @@ async def delete_news_yours_company(
     news_id: int,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Delete news by id on your company - only owner"""
 =======
 >>>>>>> 3f2822f (Complete servis with admin and company)
+=======
+    """Delete news by id on your company - only owner"""
+>>>>>>> e7f03f9 (Added docs)
     return await admin_services.AdminServices(session).delete_news(
         admin, news_id
     )

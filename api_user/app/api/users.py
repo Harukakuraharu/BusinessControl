@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 from core import dependency
 from fastapi import status
 from fastapi.responses import JSONResponse
@@ -6,15 +7,19 @@ from fastapi.routing import APIRouter
 from schemas import schemas
 from services.user_services import UserService
 =======
+=======
+from core import dependency
+>>>>>>> e7f03f9 (Added docs)
 from fastapi import status
 from fastapi.responses import JSONResponse
 from fastapi.routing import APIRouter
-from services.user_services import UserService
-
-from core import dependency
 from schemas import schemas
+<<<<<<< HEAD
 
 >>>>>>> 09b7086 (Add user routers)
+=======
+from services.user_services import UserService
+>>>>>>> e7f03f9 (Added docs)
 
 user_routers = APIRouter(
     prefix="/user",
@@ -93,10 +98,13 @@ async def get_users_me(
     user = current_user
     return user
 
+<<<<<<< HEAD
 =======
     user = current_user
     return user
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+>>>>>>> e7f03f9 (Added docs)
 
 @user_routers.patch("/me/", response_model=schemas.UserResponse)
 async def update_user(

@@ -42,6 +42,7 @@ class User(Base):
     is_super_admin: Mapped[bool] = mapped_column(server_default=false())
     is_admin: Mapped[bool] = mapped_column(server_default=false())
 <<<<<<< HEAD
+<<<<<<< HEAD
     organization: Mapped["Organization"] = relationship(  # type: ignore[name-defined]
         back_populates="user", lazy="joined"
     )
@@ -109,12 +110,22 @@ class CompanyEmployeers(Base):
 >>>>>>> 3f2822f (Complete servis with admin and company)
 =======
     tasks_user: Mapped[list["TaskUser"]] = relationship(
+=======
+    organization: Mapped["Organization"] = relationship(  # type: ignore[name-defined]
+        back_populates="user", lazy="joined"
+    )
+    tasks_user: Mapped[list["TaskUser"]] = relationship(  # type: ignore[name-defined]
+>>>>>>> e7f03f9 (Added docs)
         back_populates="users", lazy="selectin"
     )
-    meeting_user: Mapped[list["MeetingUser"]] = relationship(
+    meeting_user: Mapped[list["MeetingUser"]] = relationship(  # type: ignore[name-defined]
         back_populates="users", lazy="selectin"
     )
-    motivations: Mapped[list["Motivation"]] = relationship(
+    motivations: Mapped[list["Motivation"]] = relationship(  # type: ignore[name-defined]
         back_populates="users", lazy="joined"
+<<<<<<< HEAD
     )   
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    )
+>>>>>>> e7f03f9 (Added docs)

@@ -31,10 +31,14 @@ class MeetingUser(Base):
     __tablename__ = "meeting_user"
     __table_args__ = (UniqueConstraint("meeting_id", "user_id"),)
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+
+>>>>>>> e7f03f9 (Added docs)
     id: Mapped[intpk]
     user_id: Mapped[int] = mapped_column(
         ForeignKey("users.id", ondelete="CASCADE")
@@ -43,10 +47,14 @@ class MeetingUser(Base):
         ForeignKey("meetings.id", ondelete="CASCADE")
     )
 <<<<<<< HEAD
+<<<<<<< HEAD
     users: Mapped["User"] = relationship(  # type: ignore[name-defined]
 =======
     users: Mapped["User"] = relationship(
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    users: Mapped["User"] = relationship(  # type: ignore[name-defined]
+>>>>>>> e7f03f9 (Added docs)
         back_populates="meeting_user", lazy="joined"
     )
     meetings: Mapped[Meeting] = relationship(

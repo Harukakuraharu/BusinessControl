@@ -4,9 +4,13 @@ from pydantic_settings import BaseSettings
 
 class Config(BaseSettings):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Pull env config"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Pull env config"""
+>>>>>>> e7f03f9 (Added docs)
 
     POSTGRES_USER: str = "user"
     POSTGRES_PASSWORD: str = "user"

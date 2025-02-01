@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 from core import dependency
 from fastapi import Depends, status
 from fastapi.responses import JSONResponse
@@ -7,14 +8,14 @@ from schemas import schemas
 from services.services_tasks import TaskServices
 
 =======
+=======
+from core import dependency
+>>>>>>> e7f03f9 (Added docs)
 from fastapi import Depends, status
 from fastapi.responses import JSONResponse
 from fastapi.routing import APIRouter
-from services.services_tasks import TaskServices
-
-from core import dependency
 from schemas import schemas
-
+from services.services_tasks import TaskServices
 
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
 tasks_routers = APIRouter(prefix="/tasks", tags=["Tasks"])
@@ -27,9 +28,13 @@ async def create_task(
     data: schemas.CreateTask,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Create task by company admin"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Create task by company admin"""
+>>>>>>> e7f03f9 (Added docs)
     return await TaskServices(session).create_task(admin, data)
 
 
@@ -40,9 +45,13 @@ async def add_user_task(
     data: schemas.AddUserTask,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Add user in task"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Add user in task"""
+>>>>>>> e7f03f9 (Added docs)
     return await TaskServices(session).add_user_task(data, admin.id)
 
 
@@ -52,9 +61,13 @@ async def get_all_yours_task(
     admin: dependency.ManagerPermissionDependency,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Get all tasks"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Get all tasks"""
+>>>>>>> e7f03f9 (Added docs)
     return await TaskServices(session).get_tasks(admin.id)
 
 
@@ -65,9 +78,13 @@ async def get_task(
     task_id: int,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Get task by id"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Get task by id"""
+>>>>>>> e7f03f9 (Added docs)
     return await TaskServices(session).get_task(admin.id, task_id)
 
 
@@ -79,9 +96,13 @@ async def update_task(
     data: schemas.TaskUpdate,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Update task"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Update task"""
+>>>>>>> e7f03f9 (Added docs)
     return await TaskServices(session).update_task(admin.id, task_id, data)
 
 
@@ -115,9 +136,13 @@ async def update_status_task(
     task_id: int,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Update task status"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Update task status"""
+>>>>>>> e7f03f9 (Added docs)
     return await TaskServices(session).update_task_status(
         task_id, data, user.id
     )
@@ -141,9 +166,13 @@ async def create_grade_task(
     data: schemas.CreareGrade,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Create grade for task by tasks owner"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Create grade for task by tasks owner"""
+>>>>>>> e7f03f9 (Added docs)
     return await TaskServices(session).create_grade(task_id, data, admin.id)
 
 
@@ -155,6 +184,9 @@ async def get_grade_task(
 ):
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e7f03f9 (Added docs)
     """Get grade for task"""
     return await TaskServices(session).get_param_grade(user.id, params)
 =======
@@ -171,7 +203,11 @@ async def get_grade_company(
     user: dependency.GetCurrentUserDependency,
 ):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Get grade task for all conpany"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Get grade task for all conpany"""
+>>>>>>> e7f03f9 (Added docs)
     return await TaskServices(session).get_company_grade(user.id)

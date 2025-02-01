@@ -2,6 +2,7 @@ from pathlib import Path
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 from pydantic import Field, computed_field
 =======
 from pydantic import computed_field
@@ -9,14 +10,21 @@ from pydantic import computed_field
 =======
 from pydantic import computed_field, Field
 >>>>>>> 6230ac8 (Added api tests)
+=======
+from pydantic import Field, computed_field
+>>>>>>> e7f03f9 (Added docs)
 from pydantic_settings import BaseSettings
 
 
 class Config(BaseSettings):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Pull env config"""
 =======
 >>>>>>> a0a9e11 (Fix folders)
+=======
+    """Pull env config"""
+>>>>>>> e7f03f9 (Added docs)
 
     ROOT_DIR: Path = Path(__file__).parent.parent.resolve()
 
@@ -36,6 +44,7 @@ class Config(BaseSettings):
     ALGORITHM: str = Field(default="")
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 100
 
+<<<<<<< HEAD
 =======
 >>>>>>> a0a9e11 (Fix folders)
 =======
@@ -43,6 +52,8 @@ class Config(BaseSettings):
     ALGORITHM: str = Field(default="")
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 100
 >>>>>>> 6230ac8 (Added api tests)
+=======
+>>>>>>> e7f03f9 (Added docs)
     @computed_field
     def async_dsn(self) -> str:
         """URL for async commection"""

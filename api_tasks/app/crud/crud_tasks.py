@@ -8,20 +8,30 @@ from repository.base_crud import BaseCrud
 
 class TaskCrud(BaseCrud):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Execution of the request in database for task model"""
 
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Execution of the request in database for task model"""
+
+>>>>>>> e7f03f9 (Added docs)
     def __init__(self, session):
         super().__init__(session)
         self.model = models.Task
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     async def get_yours_tasks(self, admin_id: int) -> list:
         """Get all tasks"""
 =======
     async def get_yours_tasks(self, admin_id: int):
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    async def get_yours_tasks(self, admin_id: int) -> list:
+        """Get all tasks"""
+>>>>>>> e7f03f9 (Added docs)
         stmt = sa.select(self.model).where(
             self.model.tasks_user.any(user_id=admin_id)
         )
@@ -29,11 +39,16 @@ class TaskCrud(BaseCrud):
         return response.unique().all()
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     async def get_task(self, user_id: int, task_id: int) -> models.Task:
         """Get task by id"""
 =======
     async def get_task(self, user_id: int, task_id: int):
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    async def get_task(self, user_id: int, task_id: int) -> models.Task:
+        """Get task by id"""
+>>>>>>> e7f03f9 (Added docs)
         stmt = (
             sa.select(self.model)
             .join(models.TaskUser, models.TaskUser.task_id == self.model.id)
@@ -53,10 +68,15 @@ class TaskCrud(BaseCrud):
 
 class TaskUserCrud(BaseCrud):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Execution of the request in database for task-user model"""
 
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Execution of the request in database for task-user model"""
+
+>>>>>>> e7f03f9 (Added docs)
     def __init__(self, session):
         super().__init__(session)
         self.model = models.TaskUser
@@ -64,19 +84,28 @@ class TaskUserCrud(BaseCrud):
 
 class MotivationCrud(BaseCrud):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Execution of the request in database for motivation model"""
 
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    """Execution of the request in database for motivation model"""
+
+>>>>>>> e7f03f9 (Added docs)
     def __init__(self, session):
         super().__init__(session)
         self.model = models.Motivation
 
     async def get_grades(self, user_id: int, date_start: date, date_end: date):
 <<<<<<< HEAD
+<<<<<<< HEAD
         """Get grade for current user with date filter"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+        """Get grade for current user with date filter"""
+>>>>>>> e7f03f9 (Added docs)
         stmt = (
             sa.select(self.model.grade)
             .join(models.Task, models.Task.id == self.model.task_id)
@@ -97,9 +126,13 @@ class MotivationCrud(BaseCrud):
 
     async def get_company_grade(self, user_id: int):
 <<<<<<< HEAD
+<<<<<<< HEAD
         """Get grade for all company"""
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+        """Get grade for all company"""
+>>>>>>> e7f03f9 (Added docs)
         stmt = (
             sa.select(self.model.grade)
             .join(
