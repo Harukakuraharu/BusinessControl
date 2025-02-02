@@ -16,10 +16,14 @@ async def test_create_task_manager(admin_company_client: AsyncClient):
         "descriptions": "How are you",
         "status": models.TaskStatus.NEW.value,
 <<<<<<< HEAD
+<<<<<<< HEAD
         "date": "10:00",
 =======
         "time": "10:00",
 >>>>>>> 6230ac8 (Added api tests)
+=======
+        "date": "10:00",
+>>>>>>> 0f0357a (Fix migrations and tests)
     }
     response = await admin_company_client.post("/tasks/", json=data)
     assert response.status_code == status.HTTP_200_OK
@@ -32,10 +36,14 @@ async def test_create_task_user(user_client: AsyncClient):
         "descriptions": "How are you",
         "status": models.TaskStatus.NEW.value,
 <<<<<<< HEAD
+<<<<<<< HEAD
         "date": "10:00",
 =======
         "time": "10:00",
 >>>>>>> 6230ac8 (Added api tests)
+=======
+        "date": "10:00",
+>>>>>>> 0f0357a (Fix migrations and tests)
     }
     response = await user_client.post("/tasks/", json=data)
     assert response.status_code == status.HTTP_403_FORBIDDEN

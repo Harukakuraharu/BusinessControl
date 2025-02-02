@@ -30,10 +30,14 @@ def get_revisions():
     # (we don't need database for getting revisions list)
     config.DB_HOST = "localhost"
 <<<<<<< HEAD
+<<<<<<< HEAD
     alembic_config = make_alembic_config(config.dsn, "database")
 =======
     alembic_config = make_alembic_config(config.dsn)
 >>>>>>> a0a9e11 (Fix folders)
+=======
+    alembic_config = make_alembic_config(config.dsn, "database")
+>>>>>>> 0f0357a (Fix migrations and tests)
     # Get directory object with Alembic migrations
     revisions_dir = ScriptDirectory.from_config(alembic_config)
 

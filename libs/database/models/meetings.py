@@ -1,9 +1,13 @@
 import datetime
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import sqlalchemy as sa
 =======
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+import sqlalchemy as sa
+>>>>>>> 0f0357a (Fix migrations and tests)
 from sqlalchemy import ForeignKey, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -18,10 +22,14 @@ class Meeting(Base):
     title: Mapped[str]
     date: Mapped[datetime.date]
 <<<<<<< HEAD
+<<<<<<< HEAD
     time: Mapped[datetime.time] = mapped_column(sa.Time(timezone=False))
 =======
     time: Mapped[datetime.time]
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+    time: Mapped[datetime.time] = mapped_column(sa.Time(timezone=False))
+>>>>>>> 0f0357a (Fix migrations and tests)
     meeting_user: Mapped[list["MeetingUser"]] = relationship(
         back_populates="meetings", lazy="selectin"
     )

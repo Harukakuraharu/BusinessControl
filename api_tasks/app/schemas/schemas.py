@@ -76,6 +76,7 @@ class CreateTaskResponse(CreateTask):
     """Response schemas for create tasks"""
 
     date: datetime.date
+<<<<<<< HEAD
 =======
 =======
     """Response schemas for create tasks"""
@@ -83,6 +84,8 @@ class CreateTaskResponse(CreateTask):
 >>>>>>> e7f03f9 (Added docs)
     time: datetime.date
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+>>>>>>> 0f0357a (Fix migrations and tests)
     tasks_user: list[TaskUser]
 
 
@@ -123,6 +126,7 @@ class TaskResponse(CreateTask):
 
     id: int
     date: datetime.date
+<<<<<<< HEAD
 =======
 =======
     """Schemas for get tasks"""
@@ -131,6 +135,8 @@ class TaskResponse(CreateTask):
     id: int
     time: datetime.date
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+>>>>>>> 0f0357a (Fix migrations and tests)
     tasks_user: list[TaskUser]
 
 

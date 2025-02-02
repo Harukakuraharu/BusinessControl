@@ -169,10 +169,14 @@ class TaskFactory(MainFactory):
                 "status": kwargs.get("status", models.TaskStatus.NEW),
                 "comments": kwargs.get("comments", faker.name()),
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "date": kwargs.get("time", datetime.datetime.now()),
 =======
                 "time": kwargs.get("time", datetime.datetime.now()),
 >>>>>>> 6230ac8 (Added api tests)
+=======
+                "date": kwargs.get("time", datetime.datetime.now()),
+>>>>>>> 0f0357a (Fix migrations and tests)
             }
             for _ in range(count)
         )

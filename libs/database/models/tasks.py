@@ -30,6 +30,7 @@ class Task(Base):
     comments: Mapped[str] = mapped_column(nullable=True)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     date: Mapped[datetime.date] = mapped_column(
         server_default=func.now()  # pylint: disable=E1102
     )
@@ -38,6 +39,9 @@ class Task(Base):
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
 =======
     time: Mapped[datetime.date] = mapped_column(
+=======
+    date: Mapped[datetime.date] = mapped_column(
+>>>>>>> 0f0357a (Fix migrations and tests)
         server_default=func.now()  # pylint: disable=E1102
     )
 >>>>>>> e7f03f9 (Added docs)

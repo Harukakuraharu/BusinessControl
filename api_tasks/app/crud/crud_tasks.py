@@ -112,12 +112,17 @@ class MotivationCrud(BaseCrud):
             .where(
                 self.model.user_id == user_id,
 <<<<<<< HEAD
+<<<<<<< HEAD
                 models.Task.date >= date_start,
                 models.Task.date <= date_end,
 =======
                 models.Task.time >= date_start,
                 models.Task.time <= date_end,
 >>>>>>> 0c00bcb (Complete servis with tasks and meetings)
+=======
+                models.Task.date >= date_start,
+                models.Task.date <= date_end,
+>>>>>>> 0f0357a (Fix migrations and tests)
             )
         )
         result = await self.session.execute(stmt)
