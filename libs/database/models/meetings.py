@@ -1,5 +1,6 @@
 import datetime
 
+import sqlalchemy as sa
 from sqlalchemy import ForeignKey, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -13,7 +14,7 @@ class Meeting(Base):
     id: Mapped[intpk]
     title: Mapped[str]
     date: Mapped[datetime.date]
-    time: Mapped[datetime.time]
+    time: Mapped[datetime.time] = mapped_column(sa.Time(timezone=False))
     meeting_user: Mapped[list["MeetingUser"]] = relationship(
         back_populates="meetings", lazy="selectin"
     )

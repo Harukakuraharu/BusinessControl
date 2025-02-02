@@ -145,7 +145,7 @@ class TaskFactory(MainFactory):
                 "descriptions": kwargs.get("descriptions", faker.name()),
                 "status": kwargs.get("status", models.TaskStatus.NEW),
                 "comments": kwargs.get("comments", faker.name()),
-                "time": kwargs.get("time", datetime.datetime.now()),
+                "date": kwargs.get("time", datetime.datetime.now()),
             }
             for _ in range(count)
         )

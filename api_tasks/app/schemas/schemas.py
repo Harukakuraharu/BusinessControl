@@ -41,7 +41,7 @@ class TaskUser(BaseModel):
 class CreateTaskResponse(CreateTask):
     """Response schemas for create tasks"""
 
-    time: datetime.date
+    date: datetime.date
     tasks_user: list[TaskUser]
 
 
@@ -63,7 +63,7 @@ class TaskResponse(CreateTask):
     """Schemas for get tasks"""
 
     id: int
-    time: datetime.date
+    date: datetime.date
     tasks_user: list[TaskUser]
 
 

@@ -28,7 +28,7 @@ class Task(Base):
     descriptions: Mapped[str]
     status: Mapped[TaskStatus]
     comments: Mapped[str] = mapped_column(nullable=True)
-    time: Mapped[datetime.date] = mapped_column(
+    date: Mapped[datetime.date] = mapped_column(
         server_default=func.now()  # pylint: disable=E1102
     )
     tasks_user: Mapped[list["TaskUser"]] = relationship(

@@ -62,8 +62,8 @@ class MotivationCrud(BaseCrud):
             .join(models.Task, models.Task.id == self.model.task_id)
             .where(
                 self.model.user_id == user_id,
-                models.Task.time >= date_start,
-                models.Task.time <= date_end,
+                models.Task.date >= date_start,
+                models.Task.date <= date_end,
             )
         )
         result = await self.session.execute(stmt)

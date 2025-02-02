@@ -1,8 +1,8 @@
-"""added tasks and meetings model
+"""fix models
 
-Revision ID: 56f0ab2b20d8
+Revision ID: e7e31e62d9e0
 Revises: 
-Create Date: 2025-01-30 00:50:56.697625
+Create Date: 2025-02-02 21:38:27.474362
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '56f0ab2b20d8'
+revision: str = 'e7e31e62d9e0'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -30,7 +30,8 @@ def upgrade() -> None:
     op.create_table('meetings',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(), nullable=False),
-    sa.Column('time', sa.DateTime(), nullable=False),
+    sa.Column('date', sa.Date(), nullable=False),
+    sa.Column('time', sa.Time(timezone=True), nullable=False),
     sa.PrimaryKeyConstraint('id', name=op.f('pk_meetings'))
     )
     op.create_table('tasks',
@@ -39,7 +40,7 @@ def upgrade() -> None:
     sa.Column('descriptions', sa.String(), nullable=False),
     sa.Column('status', task_status, nullable=False),
     sa.Column('comments', sa.String(), nullable=True),
-    sa.Column('time', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
+    sa.Column('date', sa.Date(), server_default=sa.text('now()'), nullable=False),
     sa.PrimaryKeyConstraint('id', name=op.f('pk_tasks'))
     )
     op.create_table('users',
@@ -59,7 +60,8 @@ def upgrade() -> None:
     sa.Column('meeting_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['meeting_id'], ['meetings.id'], name=op.f('fk_meeting_user_meeting_id_meetings'), ondelete='CASCADE'),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], name=op.f('fk_meeting_user_user_id_users'), ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('id', name=op.f('pk_meeting_user'))
+    sa.PrimaryKeyConstraint('id', name=op.f('pk_meeting_user')),
+    sa.UniqueConstraint('meeting_id', 'user_id', name=op.f('uq_meeting_user_meeting_id'))
     )
     op.create_table('motivations',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -69,7 +71,8 @@ def upgrade() -> None:
     sa.CheckConstraint('grade > 0', name=op.f('ck_motivations_`grade_gt_0`')),
     sa.ForeignKeyConstraint(['task_id'], ['tasks.id'], name=op.f('fk_motivations_task_id_tasks'), ondelete='CASCADE'),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], name=op.f('fk_motivations_user_id_users'), ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('id', name=op.f('pk_motivations'))
+    sa.PrimaryKeyConstraint('id', name=op.f('pk_motivations')),
+    sa.UniqueConstraint('task_id', 'user_id', name=op.f('uq_motivations_task_id'))
     )
     op.create_table('news',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -96,7 +99,8 @@ def upgrade() -> None:
     sa.Column('user_role', task_role, nullable=False),
     sa.ForeignKeyConstraint(['task_id'], ['tasks.id'], name=op.f('fk_taskuser_task_id_tasks'), ondelete='CASCADE'),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], name=op.f('fk_taskuser_user_id_users'), ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('id', name=op.f('pk_taskuser'))
+    sa.PrimaryKeyConstraint('id', name=op.f('pk_taskuser')),
+    sa.UniqueConstraint('task_id', 'user_id', name=op.f('uq_taskuser_task_id'))
     )
     # ### end Alembic commands ###
 
